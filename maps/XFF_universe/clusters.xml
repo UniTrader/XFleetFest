@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+	<macro name="map_xff_clu_ma_macro" class="cluster">
+		<component ref="standardcluster" />
+		<connections>
+			<connection name="map_xff_sec_01_connection" ref="sectors">
+				<offset>
+					<position x="56459092" y="-22315086" z="-5069391.5" />
+				</offset>
+				<macro ref="map_xff_sec_ma_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,25}" description="{20004,26}" />
+						<area sunlight="0.5" />
+						<map background="part_bg_sec_01" index="1" shortvariation="{20007, 4013}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_02_connection" ref="sectors">
+				<offset>
+					<position x="21615.234375" y="7373252" z="-61614.93359375" />
+				</offset>
+				<macro ref="map_xff_sec_ma_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,27}" description="{20004,28}" />
+						<area sunlight="1" />
+						<map background="part_bg_sec_02" index="2" shortvariation="{20007, 4014}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_03_connection" ref="sectors">
+				<offset>
+					<position x="-52361260" y="989055.1875" z="39248600" />
+				</offset>
+				<macro ref="map_xff_sec_ma_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,29}"  description="{20004,30}" />
+						<area sunlight="1" />
+						<map background="part_bg_sec_03" index="3" shortvariation="{20007, 4015}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection ref="content">
+				<macro>
+					<component connection="space" ref="cluster_a" />
+				</macro>
+			</connection>
+		</connections>
+		<properties>
+			<identification name="{20003,7}" description="{20003,8}" />
+			<sounds>
+				<music ref="music_cluster_a" />
+			</sounds>
+			<area sunlight="1" />
+			<map background="part_bg_maelstrom" index="4" shortvariation="{20007, 3004}" />
+		</properties>
+	</macro>
+	<macro name="map_xff_clu_al_macro" class="cluster">
+		<component ref="standardcluster" />
+		<connections>
+			<connection name="map_xff_sec_04_connection" ref="sectors">
+				<offset>
+					<position x="23955242" y="-8309088" z="-33998604" />
+				</offset>
+				<macro ref="map_xff_sec_al_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,7}" description="{20004,8}" />
+						<area sunlight="1.2" />
+						<map background="part_bg_sec_04" index="1" shortvariation="{20007, 4004}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_05_connection" ref="sectors">
+				<offset>
+					<position x="-15724539" y="-721404.1875" z="1462288.625" />
+				</offset>
+				<macro ref="map_xff_sec_al_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,5}" description="{20004,6}" />
+						<!--sounds>
+        <music ref="music_sector_05" />
+      </sounds-->
+						<area sunlight="0.4" />
+						<map background="part_bg_sec_05" index="2" shortvariation="{20007, 4003}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_06_connection" ref="sectors">
+				<offset>
+					<position x="-10984391" y="0" z="12102793" />
+				</offset>
+				<macro ref="map_xff_sec_al_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,3}" description="{20004,4}"/>
+						<!--sounds>
+        <music ref="music_sector_06" />
+      </sounds-->
+						<area sunlight="0.6" />
+						<map background="part_bg_sec_06" index="3" shortvariation="{20007, 4002}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_07_connection" ref="sectors">
+				<offset>
+					<position x="-4689234.5" y="3372383.25" z="27765918" />
+				</offset>
+				<macro ref="map_xff_sec_al_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,1}"  description="{20004,2}" />
+						<!--sounds>
+        <music ref="music_sector_07" />
+      </sounds-->
+						<area sunlight="1.2" />
+						<map background="part_bg_sec_07" index="4" shortvariation="{20007, 4001}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection ref="content">
+				<macro>
+					<component connection="space" ref="cluster_b" />
+				</macro>
+			</connection>
+		</connections>
+		<properties>
+			<identification name="{20003,1}" description="{20003,2}" />
+			<sounds>
+				<music ref="music_cluster_b" />
+			</sounds>
+			<area sunlight="1.2" />
+			<map background="part_bg_albion" index="1" shortvariation="{20007, 3001}" />
+		</properties>
+	</macro>
+	<macro name="map_xff_clu_ol_macro" class="cluster">
+		<component ref="standardcluster" />
+		<connections>
+			<connection name="map_xff_sec_08_connection" ref="sectors">
+				<offset>
+					<position x="-16247402" y="9471725" z="-12878449" />
+				</offset>
+				<macro ref="map_xff_sec_ol_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,9}" description="{20004,10}" owner="argongovernment"/>
+						<area sunlight="0.9" />
+						<map background="part_bg_sec_08" index="3" shortvariation="{20007, 4005}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_09_connection" ref="sectors">
+				<offset>
+					<position x="-4730172" y="18231884" z="5476128" />
+				</offset>
+				<macro ref="map_xff_sec_ol_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,11}" description="{20004,12}" owner="argongovernment"/>
+						<area sunlight="0.8" />
+						<map background="part_bg_sec_09" index="2" shortvariation="{20007, 4006}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_10_connection" ref="sectors">
+				<offset>
+					<position x="-17120688" y="50487944" z="10927947" />
+				</offset>
+				<macro ref="map_xff_sec_ol_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,13}" description="{20004,14}" owner="argongovernment"/>
+						<area sunlight="0.2" />
+						<map background="part_bg_sec_10" index="1" shortvariation="{20007, 4007}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_11_connection" ref="sectors">
+				<offset>
+					<position x="1699.21875" y="-75615320" z="42.96875" />
+				</offset>
+				<macro ref="map_xff_sec_ol_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,15}" description="{20004,16}" owner="argongovernment"/>
+						<area sunlight="0.6" />
+						<map background="part_bg_sec_11" index="4" shortvariation="{20007, 4008}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection ref="content">
+				<macro>
+					<component connection="space" ref="cluster_c" />
+				</macro>
+			</connection>
+		</connections>
+		<properties>
+			<identification name="{20003,5}" description="{20003,6}" />
+			<sounds>
+				<music ref="music_cluster_c" />
+			</sounds>
+			<area sunlight="0.8" />
+			<map background="part_bg_omicron" index="3" shortvariation="{20007, 3003}" />
+		</properties>
+	</macro>
+	<macro name="map_xff_clu_dv_macro" class="cluster">
+		<component ref="standardcluster" />
+		<connections>
+			<connection name="map_xff_sec_17_connection" ref="sectors">
+				<offset>
+					<position x="2008.3999023438" y="0" z="-100000464" />
+				</offset>
+				<macro ref="map_xff_sec_dv_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,17}" description="{20004,18}" />
+						<area sunlight="0.8" />
+						<map background="part_bg_sec_12" index="1" shortvariation="{20007, 4009}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_18_connection" ref="sectors">
+				<offset>
+					<position x="0" y="0" z="100688944" />
+				</offset>
+				<macro ref="map_xff_sec_dv_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,19}" description="{20004,20}" />
+						<area sunlight="2" />
+						<map background="part_bg_sec_13" index="3" shortvariation="{20007, 4010}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_19_connection" ref="sectors">
+				<offset>
+					<position x="-43879540" y="-37732484" z="-11848198" />
+				</offset>
+				<macro ref="map_xff_sec_dv_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,21}" description="{20004,22}" />
+						<area sunlight="1.5" />
+						<map background="part_bg_sec_14" index="2" shortvariation="{20007, 4011}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection name="map_xff_sec_20_connection" ref="sectors">
+				<offset>
+					<position x="34489192" y="1912279.25" z="-45846156" />
+				</offset>
+				<macro ref="map_xff_sec_dv_macro" connection="cluster" >
+					<properties>
+						<identification name="{20004,23}" description="{20004,24}" />
+						<area sunlight="1" />
+						<map background="part_bg_sec_15" index="4" shortvariation="{20007, 4012}" />
+					</properties>
+				</macro>
+			</connection>
+			<connection ref="content">
+				<macro>
+					<component connection="space" ref="cluster_d" />
+				</macro>
+			</connection>
+		</connections>
+		<properties>
+			<identification name="{20003,3}" description="{20003,4}" />
+			<sounds>
+				<music ref="music_cluster_d" />
+			</sounds>
+			<area sunlight="2" />
+			<map background="part_bg_defries" index="2" shortvariation="{20007, 3002}" />
+		</properties>
+	</macro>
+</macros>

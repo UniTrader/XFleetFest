@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+<replace sel="/effects/lodclasses" >
+
+  <lodclasses default="smalleffect">
+    <!-- default lod class will be used on all effects when no lod="" class is explicity defined -->
+    <lodclass name="tinyeffect" distance="50000" />
+	<lodclass name="smalleffect" distance="50000" />
+    <lodclass name="mediumeffect" distance="50000" />
+    <lodclass name="largeeffect" distance="50000" />
+    <lodclass name="megaeffect" distance="50000" />
+    <lodclass name="ubereffect" distance="50000" />
+    <lodclass name="scfx" distance="50000" />
+  </lodclasses>
+</replace>
+</diff>

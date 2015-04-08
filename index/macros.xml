@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- ?xml-stylesheet href="index.xsl" type="text\xsl" ? -->
+<index>
+	<!-- <entry name="*" value="assets\entry"/>-->
+	<!--EP 1 Universe Galaxy -->
+	<entry name="map_xff_universe_macro" value="Extensions\XFleetFest\maps\XFF_universe\galaxy"/>
+	<entry name="map_xff_clu_*" value="Extensions\XFleetFest\maps\XFF_universe\clusters"/>
+	<entry name="map_xff_sec_*" value="Extensions\XFleetFest\maps\XFF_universe\sectors"/>
+	<entry name="map_xff_zon_*" value="Extensions\XFleetFest\maps\XFF_universe\zones"/>
+</index>

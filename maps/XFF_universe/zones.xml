@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="map_xff_zon_empty_macro" class="zone">
+    <component ref="standardzone" />
+    <connections>
+    </connections>
+    <properties>
+      <boundaries priority="1" />
+      <identification name="Empty Battlefield" />
+      <area />
+      <icon map="tzoneCluster_A_Sector01_Zone96_macro_icon" />
+      <map index="1" />
+    </properties>
+  </macro>
+  <macro name="map_xff_zon_reiver_base_macro" class="zone">
+    <component ref="standardzone" />
+    <connections>
+      <connection name="struct_bt_dv_reivers_outpost_01_macro" ref="stations">
+        <offset>
+        </offset>
+        <macro ref="struct_bt_dv_reivers_outpost_01_macro" connection="space">
+          <properties>
+            <identification owner="reivers" />
+            <build>
+              <plan sequence="A" stage="1" />
+            </build>
+          </properties>
+        </macro>
+      </connection>
+    </connections>
+    <properties>
+      <boundaries priority="1" />
+      <identification name="Reiver Outpost" />
+      <area />
+      <icon map="tzoneCluster_A_Sector01_Zone96_macro_icon" />
+      <map index="2" />
+    </properties>
+  </macro>
+  <macro name="map_xff_zon_xenon_base_macro" class="zone">
+    <component ref="standardzone" />
+    <connections>
+      <connection name="landmarks_unique_aqueduct_macro1" ref="stations">
+        <offset>
+          <position x="6500" y="0" z="500" />
+					<rotation yaw="90" pitch="0" roll="2" />
+        </offset>
+        <macro ref="landmarks_unique_aqueduct_macro" connection="space">
+          <properties>
+            <identification owner="unknown" />
+            <build>
+              <plan sequence="A" stage="1" />
+            </build>
+          </properties>
+        </macro>
+      </connection>
+      <connection name="landmarks_unique_aqueduct_macro2" ref="stations">
+        <offset>
+          <position x="-6500" y="0" z="-500" />
+					<rotation yaw="-90" pitch="0" roll="2" />
+        </offset>
+        <macro ref="landmarks_unique_aqueduct_macro" connection="space">
+          <properties>
+            <identification owner="unknown" />
+            <build>
+              <plan sequence="A" stage="1" />
+            </build>
+          </properties>
+        </macro>
+      </connection>
+    </connections>
+    <properties>
+      <boundaries priority="1" />
+      <identification name="Landmark: The Aqueduct" />
+      <area />
+      <icon map="tzoneCluster_A_Sector01_Zone96_macro_icon" />
+      <map index="2" />
+    </properties>
+  </macro>
+</macros>

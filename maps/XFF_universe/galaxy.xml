@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="map_xff_universe_macro" class="galaxy">
+    <component ref="standardgalaxy" />
+    <connections>
+      <connection name="map_xff_cluster_ma_connection" ref="clusters">
+        <offset>
+          <position x="1000000000" y="0" z="-1000000000" />
+        </offset>
+        <macro ref="map_xff_clu_ma_macro" connection="galaxy" />
+      </connection>
+      <connection name="map_xff_cluster_al_connection" ref="clusters">
+        <offset>
+          <position x="-1000000000" y="0" z="-1000000000" />
+        </offset>
+        <macro ref="map_xff_clu_al_macro" connection="galaxy" />
+      </connection>
+      <connection name="map_xff_cluster_ol_connection" ref="clusters">
+        <offset>
+          <position x="1000000000" y="0" z="1000000000" />
+        </offset>
+        <macro ref="map_xff_clu_ol_macro" connection="galaxy" />
+      </connection>
+      <connection name="map_xff_cluster_dv_connection" ref="clusters">
+        <offset>
+          <position x="-1000000000" y="0" z="1000000000" />
+        </offset>
+        <macro ref="map_xff_clu_dv_macro" connection="galaxy" />
+      </connection>
+    </connections>
+    <properties>
+      <identification name="{20002,1}" />
+      <map background="part_bg_galmap" index="-1" />
+    </properties>
+  </macro>
+</macros>

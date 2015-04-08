@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mdscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="BattleSetup" xsi:noNamespaceSchemaLocation="http://utnas/~unitrader/XRebirthxsds/md.xsd">
+  <cues>
+    <cue name="Init">
+      <conditions>
+        <event_cue_signalled cue="md.Setup.GameStart"/>
+      </conditions>
+      <actions>
+        <!-- Static Fleet Info - maybe parse it from a t-file or something? -->
+        <!-- $fleetnames is just a list of the Names for the Fleets in $fleetconfigs, same index refers to same Fleet -->
+        <!-- Fleet Definition: [ macro.first_ship , index#.leader , macro.drone1 , count , macro.drone2 , count, .... ] , [ macro.second_ship , ... ] ... ] -->
+        <set_value name="$fleetnames" exact="[]"/>
+        <set_value name="$fleetconfigs" exact="[]"/>
+        <!-- not to be included in Demo Version
+        <append_to_list name="$fleetnames" exact="'1 Lyramekron'"/>
+        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_cs_omicron_ship_04_macro , 0 ] ]"/>
+        <append_to_list name="$fleetnames" exact="'1 Arawn with 150 Welders'"/>
+        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_1_macro , 0 , macro.units_size_xs_welder_drone_macro , 150 ] ]"/>
+        <append_to_list name="$fleetnames" exact="'3 Taranis'"/>
+        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_2_macro , 0 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] ]"/>
+        <append_to_list name="$fleetnames" exact="'5 Arawn'"/>
+        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_1_macro , 0 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] ]"/>-->
+        <append_to_list name="$fleetnames" exact="'UT Albion Fleet'"/>
+        <append_to_list name="$fleetconfigs" exact="[ 
+        [ macro.units_size_xl_capital_destroyer_1_macro , 0 ] , 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , 
+        [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , 
+        [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , 
+        [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] 
+        ]"/>
+        <append_to_list name="$fleetnames" exact="'13 Taranis'"/>
+        <append_to_list name="$fleetconfigs" exact="[ 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 0 ] ,
+        [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] 
+        ]"/>
+        <append_to_list name="$fleetnames" exact="'31 Balor'"/>
+        <append_to_list name="$fleetconfigs" exact="[ 
+        [ macro.units_size_l_single_attack_ship_macro , 0 ] ,
+[ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] ,
+[ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] 
+        ]"/>
+        <!-- some default Start Values, can be changed with the Battle Config -->
+        <set_value name="$bluefleetid" exact="1"/>
+        <set_value name="$redfleetid" exact="2"/>
+        <set_value name="$cluster" exact="player.primaryship.cluster"/>
+        <set_value name="$sector" exact="player.primaryship.sector"/>
+        <set_value name="$zone" exact="player.primaryship.zone"/>
+        <start_conversation actor="player.copilot" conversation="BattleSetup"/>
+        <set_object_min_hull object="player.primaryship" exact="player.primaryship.maxhull"/>
+        <set_object_min_shield object="player.primaryship" exact="player.primaryship.maxshield"/>
+        <!-- Relation is not set-able directly, so first setting it to min, then to neutral and last to enemy, but not Kill on Sight (for red Fleet) -->
+        <add_faction_relation faction="faction.xenon" otherfaction="faction.player" value="-1.00"/>
+        <add_faction_relation faction="faction.xenon" otherfaction="faction.player" value="1.00"/>
+        <add_faction_relation faction="faction.xenon" otherfaction="faction.player" value="-0.01"/>
+        <!-- Relation is not set-able directly, so first setting it to min, then to neutral and last to enemy, but not Kill on Sight (for DV local Stations) -->
+        <add_faction_relation faction="faction.reivers" otherfaction="faction.player" value="-1.00"/>
+        <add_faction_relation faction="faction.reivers" otherfaction="faction.player" value="1.00"/>
+        <add_faction_relation faction="faction.reivers" otherfaction="faction.player" value="-0.01"/>
+      </actions>
+      <cues>
+        <cue name="BattleSetup_main" instantiate="true">
+          <conditions>
+            <check_any>
+              <event_conversation_started conversation="BattleSetup"/>
+              <event_conversation_returned_to_section section="BattleSetup_main"/>
+              <event_conversation_next_section section="BattleSetup_main"/>
+              
+              <!-- when Choices are made return here from the Subconversations 
+              (didnt use subconv because i want to set some Values when the related Items are selected but here is not the place for that) -->
+              <event_cue_signalled cue="this" />
+            </check_any>
+          </conditions>
+          <!-- for correct Setting& Display of selected Fleet (see next cue "BattleSetup_Fleet") and Sector (see cue "BattleSetup_Sector" ) -->
+          <delay exact="1.0S"/>
+          <actions>
+            <allow_conversation_escape enabled="false"/>
+            <add_player_choice_sub text="'\033BBlue: %1\033X'.[$fleetnames.{$bluefleetid}]" section="BattleSetup_Fleet_Blue" position="top_left"/>
+            <add_player_choice_sub text="'\033RRed: %1\033X'.[$fleetnames.{$redfleetid}]" section="BattleSetup_Fleet_Red" position="top_right"/>
+            <add_player_choice_sub text="'Sector: %1 - %2'.[$cluster.knownname,$sector.knownname]" section="BattleSetup_Sector_1" position="left"/>
+            <add_player_choice_sub text="'Field: %1'.[$zone.knownname]" section="BattleSetup_Sector_1" position="right"/>
+            <add_player_choice_sub text="'Beginn Battle'" section="BattleSetup_Start" position="bottom_right"/>
+          </actions>
+        </cue>
+        <cue name="BattleSetup_Fleet" instantiate="true">
+          <conditions>
+            <event_conversation_next_section sectionprefix="BattleSetup_Fleet_"/>
+          </conditions>
+          <actions>
+            <allow_conversation_escape enabled="false"/>
+            <do_if value="event.param == 'BattleSetup_Fleet_Selected'">
+              <do_if value="$fleetcolor == 'blue'">
+                <set_value name="$bluefleetid" exact="event.param2"/>
+              </do_if>
+              <do_elseif value="$fleetcolor == 'red'">
+                <set_value name="$redfleetid" exact="event.param2"/>
+              </do_elseif>
+              <do_if value="$fleetcolor == 'green'">
+                <set_value name="$greenfleet" exact="event.param2"/>
+              </do_if>
+              <signal_cue cue="BattleSetup_main" />
+            </do_if>
+            <do_else>
+              <do_if value="event.param == 'BattleSetup_Fleet_Blue'">
+                <set_value name="$fleetselect" exact="$bluefleetid"/>
+                <set_value name="$fleetcolor" exact="'blue'"/>
+                <set_value name="$index" exact="0"/>
+              </do_if>
+              <do_elseif value="event.param == 'BattleSetup_Fleet_Red'">
+                <set_value name="$fleetselect" exact="$redfleetid"/>
+                <set_value name="$fleetcolor" exact="'red'"/>
+                <set_value name="$index" exact="0"/>
+              </do_elseif>
+              <do_elseif value="event.param == 'BattleSetup_Fleet_Green'">
+                <set_value name="$fleetselect" exact="$greenfleet"/>
+                <set_value name="$fleetcolor" exact="'green'"/>
+                <set_value name="$index" exact="0"/>
+              </do_elseif>
+              <do_elseif value="event.param == 'BattleSetup_Fleet_Next'">
+                <set_value name="$index" exact="event.param2"/>
+              </do_elseif>
+              <do_all exact="5" counter="$i">
+                <set_value name="$ilast" exact="$i"/>
+                <do_if value="$fleetnames.{$index+$i}?">
+                  <add_player_choice_sub text="$fleetnames.{$index+$i}" position="$i" section="BattleSetup_Fleet_Selected" choiceparam="$index + $i"/>
+                </do_if>
+                <do_else>
+                  <break/>
+                </do_else>
+              </do_all>
+              <do_if value="$ilast lt 5">
+                <add_player_choice_sub text="'Keep %1 Fleet: %2'.[$fleetcolor,$fleetnames.{$fleetselect}]" position="6" section="BattleSetup_main"/>
+                <add_player_choice_sub text="'Show List from the Beginning'" position="5" section="BattleSetup_Fleet_Next" choiceparam="0"/>
+              </do_if>
+              <do_else>
+                <add_player_choice_sub text="'Next Page'" position="6" section="BattleSetup_Fleet_Next" choiceparam="$index + 5"/>
+              </do_else>
+              <add_player_choice_sub text="'Keep Fleet: %1'.[$fleetselect]" position="close" section="BattleSetup_main"/>
+            </do_else>
+          </actions>
+        </cue>
+        <cue name="BattleSetup_Sector" instantiate="true">
+          <conditions>
+            <event_conversation_next_section sectionprefix="BattleSetup_Sector_"/>
+          </conditions>
+          <actions>
+            <allow_conversation_escape enabled="false"/>
+            <do_if value="event.param== 'BattleSetup_Sector_1'">
+              <add_player_choice_sub text="'Albion - '" position="2" section="BattleSetup_Sector_2" choiceparam="macro.map_xff_clu_al_macro"/>
+              <add_player_choice_sub text="'DeVries - '" position="1" section="BattleSetup_Sector_2" choiceparam="macro.map_xff_clu_dv_macro"/>
+              <add_player_choice_sub text="'Omicron - '" position="4" section="BattleSetup_Sector_2" choiceparam="macro.map_xff_clu_ol_macro"/>
+              <add_player_choice_sub text="'Maelstron - '" position="5" section="BattleSetup_Sector_2" choiceparam="macro.map_xff_clu_ma_macro"/>
+            </do_if>
+            <do_if value="event.param== 'BattleSetup_Sector_2'">
+              <find_cluster name="$cluster" macro="event.param2"/>
+              <find_sector name="$sectors" multiple="true" space="$cluster"/>
+              <do_all exact="$sectors.count" counter="$i">
+                <add_player_choice_sub text="'%1 - %2'.[$cluster.knownname,$sectors.{$i}.knownname]" position="$i" section="BattleSetup_Sector_3" choiceparam="$sectors.{$i}"/>
+              </do_all>
+            </do_if>
+            <do_if value="event.param== 'BattleSetup_Sector_3'">
+              <set_value name="$sector" exact="event.param2"/>
+              <find_zone name="$zones" multiple="true" space="$sector"/>
+              <do_all exact="$zones.count" counter="$i">
+                <add_player_choice_sub text="'%1 - %2 - %3'.[$cluster.knownname,$sector.knownname,$zones.{$i}.knownname]" position="$i" section="BattleSetup_Sector_4" choiceparam="$zones.{$i}"/>
+              </do_all>
+            </do_if>
+            <do_if value="event.param== 'BattleSetup_Sector_4'">
+              <set_value name="$zone" exact="event.param2"/>
+              <signal_cue cue="BattleSetup_main" />
+            </do_if>
+          </actions>
+        </cue>
+        <cue name="BattleSetup_Start" instantiate="true">
+          <conditions>
+            <event_conversation_next_section section="BattleSetup_Start"/>
+          </conditions>
+          <actions>
+            <cancel_conversation conversation="BattleSetup"/>
+            <warp object="player.primaryship" zone="$zone">
+              <safepos x="0" y="0" z="0" radius="player.primaryship.size"/>
+            </warp>
+            <create_group groupname="$wrecks"/>
+            <create_group groupname="$bluefleet"/>
+            <do_all exact="$fleetconfigs.{$bluefleetid}.count" counter="$i">
+              <create_ship groupname="$bluefleet" name="$ship" macro="$fleetconfigs.{$bluefleetid}.{$i}.{1}" zone="$zone">
+                <owner exact="faction.plutarch"/>
+                <safepos x="0m" y="0m" z="-20km" radius="2km"/>
+                <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
+                <pilot macro="character_split_m_a_macro">
+                  <owner exact="faction.plutarch"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </pilot>
+                <engineer macro="character_split_m_a_macro">
+                  <owner exact="faction.plutarch"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </engineer>
+                <defence macro="character_split_m_a_macro">
+                  <owner exact="faction.plutarch"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </defence>
+              </create_ship>
+              <do_all exact="( $fleetconfigs.{$bluefleetid}.{$i}.count - 2 ) /2" counter="$j">
+                <add_units object="$ship" macro="$fleetconfigs.{$bluefleetid}.{$i}.{ ($j*2)+1 }" exact="$fleetconfigs.{$bluefleetid}.{$i}.{ ($j*2)+2 }"/>
+              </do_all>
+              <do_if value="$fleetconfigs.{$bluefleetid}.{$i}.{2} != 0 and $fleetconfigs.{$bluefleetid}.{$i}.{2} lt $i">
+                <set_object_commander object="$ship" commander="$bluefleet.{$fleetconfigs.{$bluefleetid}.{$i}.{2}}"/>
+                <start_script object="$ship.pilot" name="'move.escort.capital'">
+                  <param name="target" value="$bluefleet.{$fleetconfigs.{$bluefleetid}.{$i}.{2}}"/>
+                </start_script>
+              </do_if>
+              <do_else>
+                <start_script object="$ship.pilot" name="'move.patrol'"/>
+              </do_else>
+              <start_script object="$ship.engineer" name="'engineer.ai'"/>
+              <start_script object="$ship.defencenpc" name="'fight.defend.capital'"/>
+            </do_all>
+            <create_group groupname="$redfleet"/>
+            <do_all exact="$fleetconfigs.{$redfleetid}.count" counter="$i" reverse="false">
+              <create_ship groupname="$redfleet" name="$ship" macro="$fleetconfigs.{$redfleetid}.{$i}.{1}" zone="$zone">
+                <owner exact="faction.xenon"/>
+                <safepos x="0m" y="0m" z="20km" radius="2km"/>
+                <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
+                <pilot macro="character_split_m_a_macro">
+                  <owner exact="faction.xenon"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </pilot>
+                <engineer macro="character_split_m_a_macro">
+                  <owner exact="faction.xenon"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </engineer>
+                <defence macro="character_split_m_a_macro">
+                  <owner exact="faction.xenon"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </defence>
+              </create_ship>
+              <do_if value="$fleetconfigs.{$redfleetid}.{$i}.{2} != 0 and $fleetconfigs.{$redfleetid}.{$i}.{2} lt $i">
+                <set_object_commander object="$ship" commander="$redfleet.{$fleetconfigs.{$redfleetid}.{$i}.{2}}"/>
+                <start_script object="$ship.pilot" name="'move.escort.capital'">
+                  <param name="target" value="$redfleet.{$fleetconfigs.{$redfleetid}.{$i}.{2}}"/>
+                </start_script>
+              </do_if>
+              <do_else>
+                <start_script object="$ship.pilot" name="'move.patrol'"/>
+              </do_else>
+              <start_script object="$ship.engineer" name="'engineer.ai'"/>
+              <start_script object="$ship.defencenpc" name="'fight.defend.capital'"/>
+            </do_all>
+            <set_value name="$Battle_ongoing" exact="true"/>
+          </actions>
+          <cues>
+            <cue name="Destroyed_Ship" instantiate="true">
+              <conditions>
+                <check_any>
+                  <event_object_destroyed group="$bluefleet"/>
+                  <event_object_destroyed group="$redfleet"/>
+                </check_any>
+              </conditions>
+              <actions>
+                <do_if value="$Battle_ongoing == true">
+                  <add_to_group object="event.object" groupname="$wrecks"/>
+                  <do_if value="event.object.owner == faction.plutarch">
+                    <remove_from_group object="event.object" group="$bluefleet"/>
+                    <remove_help/>
+                    <do_if value="$bluefleet.count == 0 ">
+                      <show_help custom="'\033RRED - » %1 « - WINS\033X'.[$fleetnames.{$redfleetid}]" position="0" duration="50s"/>
+                      <set_value name="$Battle_ongoing" exact="false"/>
+                      <signal_cue cue="Fleet_Destroyed"/>
+                    </do_if>
+                    <do_else>
+                      <show_help custom="'\033B%1 / %2 \033R«««««««««« %3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]" position="0" duration="30s"/>
+                    </do_else>
+                  </do_if>
+                  <do_if value="event.object.owner == faction.xenon">
+                    <remove_from_group object="event.object" group="$redfleet"/>
+                    <remove_help/>
+                    <do_if value=" $redfleet.count == 0 ">
+                      <show_help custom="'\033BBLUE - » %1 « - WINS\033X'.[$fleetnames.{$bluefleetid}]" position="0" duration="50s"/>
+                      <set_value name="$Battle_ongoing" exact="false"/>
+                      <signal_cue cue="Fleet_Destroyed"/>
+                    </do_if>
+                    <do_else>
+                      <show_help custom="'\033B%1 / %2 »»»»»»»»»»\033R %3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]" position="0" duration="30s"/>
+                    </do_else>
+                  </do_if>
+                </do_if>
+              </actions>
+            </cue>
+            <cue name="Fleet_Destroyed">
+              <conditions>
+                <event_cue_signalled/>
+              </conditions>
+              <delay exact="60s"/>
+              <actions>
+                <destroy_group group="$wrecks"/>
+                <destroy_group group="$bluefleet"/>
+                <destroy_group group="$redfleet"/>
+                <start_conversation actor="player.copilot" conversation="BattleSetup"/>
+              </actions>
+            </cue>
+          </cues>
+        </cue>
+      </cues>
+    </cue>
+  </cues>
+</mdscript>

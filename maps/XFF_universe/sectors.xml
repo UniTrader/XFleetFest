@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+	<macro name="map_xff_sec_ma_macro" class="sector">
+		<component ref="standardsector" />
+		<connections>
+			<connection name="map_xff_zon_empty_connection" ref="zones">
+				<offset>
+					<position x="0" y="0" z="0" />
+				</offset>
+				<macro ref="map_xff_zon_empty_macro" connection="sector" />
+			</connection>
+			<connection name="map_xff_zon_xenon_base_connection" ref="zones">
+				<offset>
+					<position x="200000" y="0" z="0" />
+				</offset>
+				<macro ref="map_xff_zon_xenon_base_macro" connection="sector" />
+			</connection>
+		</connections>
+		<properties/>
+	</macro>
+	<macro name="map_xff_sec_al_macro" class="sector">
+		<component ref="standardsector" />
+		<connections>
+			<connection name="map_xff_zon_empty_connection" ref="zones">
+				<offset>
+					<position x="0" y="0" z="0" />
+				</offset>
+				<macro ref="map_xff_zon_empty_macro" connection="sector" />
+			</connection>
+		</connections>
+		<properties/>
+	</macro>
+	<macro name="map_xff_sec_ol_macro" class="sector">
+		<component ref="standardsector" />
+		<connections>
+			<connection name="map_xff_zon_empty_connection" ref="zones">
+				<offset>
+					<position x="0" y="0" z="0" />
+				</offset>
+				<macro ref="map_xff_zon_empty_macro" connection="sector" />
+			</connection>
+		</connections>
+		<properties/>
+	</macro>
+	<macro name="map_xff_sec_dv_macro" class="sector">
+		<component ref="standardsector" />
+		<connections>
+			<connection name="map_xff_zon_default_connection" ref="zones">
+				<offset>
+					<position x="0" y="0" z="0" />
+				</offset>
+				<macro ref="map_xff_zon_empty_macro" connection="sector" />
+			</connection>
+			<connection name="map_xff_zon_reiver_base_connection" ref="zones">
+				<offset>
+					<position x="200000" y="0" z="0" />
+				</offset>
+				<macro ref="map_xff_zon_reiver_base_macro" connection="sector" />
+			</connection>
+		</connections>
+		<properties>
+			<identification name="{20004,17}" description="{20004,18}" />
+			<!--sounds>
+        <music ref="music_sector_17" />
+      </sounds-->
+			<area sunlight="0.8" />
+			<map background="part_bg_sec_12" index="1" shortvariation="{20007, 4009}" />
+		</properties>
+	</macro>
+</macros>
