@@ -79,7 +79,7 @@
             </check_any>
           </conditions>
           <!-- for correct Setting& Display of selected Fleet (see next cue "BattleSetup_Fleet") and Sector (see cue "BattleSetup_Sector" ) -->
-          <delay exact="1.0S"/>
+          <delay exact="1.0s"/>
           <actions>
             <allow_conversation_escape enabled="false"/>
             <add_player_choice_sub text="'\033BBlue: %1\033X'.[$fleetnames.{$bluefleetid}]" section="BattleSetup_Fleet_Blue" position="top_left"/>
