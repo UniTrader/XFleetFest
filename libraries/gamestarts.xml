@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <diff>
-<replace sel="/gamestarts" >
-<gamestarts>
+<add sel="/gamestarts">
   <gamestart id="XFF" name="X Fleet Fest" description="X Fleet Fest" image="gamestart_4">
     <location galaxy="map_xff_universe_macro" zone="map_xff_zon_empty_macro">
       <position x="0" y="0" z="0"/>
     </location>
     <player macro="player" money="200000">
       <ship macro="unit_player_ship_b_macro">
-        <upgrade macro="engine_player_bal_mk5_macro" />
-        <upgrade macro="shieldgenerator_player_bal_mk5_macro" />
+        <upgrade macro="engine_player_bal_mk5_macro"/>
+        <upgrade macro="shieldgenerator_player_bal_mk5_macro"/>
       </ship>
     </player>
   </gamestart>
-</gamestarts>
-</replace>
+</add>
 </diff>
