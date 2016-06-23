@@ -1,55 +1,56 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <diff>
   <remove sel="//collisiondamage"/>
   <replace sel="//hintpositions">
   <hintpositions>
     <!-- Mission-Countdown-timer is hardcoded to appear at 0,0 -->
     <!-- 0: top-center Left: Blue Strength -->
-    <position x="32" y="5" />
+    <position x="32" y="5"/>
     <!-- 1: top-center Right: Red Strength -->
-    <position x="50" y="5" />
+    <position x="50" y="5"/>
     <!-- 2: top-center: Last Kill -->
-    <position x="41" y="10" />
+    <position x="41" y="10"/>
     
     
     <!-- 1: Middle of screen (targeting) -->
-    <position x="41" y="55" />
+    <position x="41" y="55"/>
     <!-- 2: Near Weapon monitor -->
-    <position x="15" y="55" />
+    <position x="15" y="55"/>
     <!-- 3: Near event-monitor -->
-    <position x="70" y="60" />
+    <position x="70" y="60"/>
     <!-- 4: Near speedbar -->
-    <position x="40" y="78" />
+    <position x="40" y="78"/>
     <!-- 5: Guidance bar -->
-    <position x="46" y="58" />
+    <position x="46" y="58"/>
     <!-- 6: Top-middle -->
-    <position x="40" y="28" />
+    <position x="40" y="28"/>
     <!-- 7: Top-right -->
-    <position x="82" y="2" />
+    <position x="82" y="2"/>
     <!-- 8: Above conversation options -->
-    <position x="40" y="65" />
+    <position x="40" y="65"/>
     <!-- 9: Bottom-middle / Trade menu -->
-    <position x="60" y="18" />
+    <position x="60" y="18"/>
     <!-- 10: Left center / Status menu -->
-    <position x="10" y="45" />
+    <position x="10" y="45"/>
     <!-- 11: Top right, below HUD event monitor -->
-    <position x="82" y="33" />
+    <position x="82" y="33"/>
     <!-- 12: Left-top, drone investigated-icon -->
-    <position x="10" y="6" />
+    <position x="10" y="6"/>
     <!-- 13: Right-top, drone attacked-icon -->
-    <position x="70" y="6" />
+    <position x="70" y="6"/>
     <!-- 14: Fight cockpit speedbar -->
-    <position x="52" y="17" />
+    <position x="52" y="17"/>
     <!-- 15: Builder cockpit speedbar -->
-    <position x="34" y="88" />
+    <position x="34" y="88"/>
     <!-- 16: Trade cockpit speedbar -->
-    <position x="28" y="84" />
+    <position x="28" y="84"/>
     <!-- 17: Fight cockpit shieldbar -->
-    <position x="75" y="17" />
+    <position x="75" y="17"/>
     <!-- 18: Builder cockpit shieldbar -->
-    <position x="5" y="76" />
+    <position x="5" y="76"/>
     <!-- 19: Trade cockpit shieldbar -->
-    <position x="42" y="81" />
-
+    <position x="42" y="81"/>
+    
+</hintpositions>
   </replace>
   </diff>
