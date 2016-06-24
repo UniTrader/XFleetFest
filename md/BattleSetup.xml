@@ -307,7 +307,7 @@
               <start_script object="$ship.defencenpc" name="'fight.defend.capital'"/>
             </do_all>
             <set_value name="$Battle_ongoing" exact="true"/>
-            <show_help custom="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}]" position="0" duration="10min" silent="true"/>
+            <show_help custom="'\033B%1 / %2\033X                    \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}]" position="0" duration="10min" silent="true"/>
             <set_value name="$killlist" exact="[]"/>
           </actions>
           <cues>
@@ -322,36 +322,74 @@
                 <do_if value="$Battle_ongoing == true">
                   <add_to_group object="event.object" groupname="$wrecks"/>
                   <remove_help all="true"/>
-                  <!-- event.param2 == killmethod - add this info, too -->
-                  <set_value name="$cause" exact="'»»»»'"/>
+                  <!-- Prepare Info Display -->
+                  <!-- Killer Info - display name in Faction Color -->
+                  <do_if value="not event.param.exists">
+                    <set_value name="$killinfo" exact="'\n¹¹¹¹'" comment="¹ displays as ?-Box"/>
+                  </do_if>
+                  <do_elseif value="event.param.owner ==  faction.plutarch">
+                      <set_value name="$killinfo" exact="'\n\033B%1'.[@event.param.macro.name]"/>
+                  </do_elseif>
+                  <do_elseif value="event.param.owner ==  faction.xenon">
+                      <set_value name="$killinfo" exact="'\n\033R%1'.[@event.param.macro.name]"/>
+                  </do_elseif>
+                  <do_else>
+                    <set_value name="$killinfo" exact="'\n\033Y%1'.[@event.param.macro.name]"/>
+                  </do_else>
+                  <!-- Killmethod -->
+                  <do_if value="event.param2 == killmethod.hitbybullet">
+                    <set_value name="$killinfo" exact="$killinfo + ' » » » '"/>
+                  </do_if>
+                  <do_if value="event.param2 == killmethod.hitbymissile">
+                    <set_value name="$killinfo" exact="$killinfo + ' #> #> '"/>
+                  </do_if>
+                  <do_if value="event.param2 == killmethod.selfdestructed">
+                    <set_value name="$killinfo" exact="$killinfo + ' selfd '"/>
+                  </do_if>
+                  <do_else>
+                    <set_value name="$killinfo" exact="$killinfo + ' ¹¹¹¹» '"/>
+                  </do_else>
+                  <!-- Killed -->
+                  <do_if value="event.object.owner ==  faction.plutarch">
+                      <set_value name="$killinfo" exact="'%1\033B%1'.[$killinfo,@event.object.macro.name]"/>
+                  </do_if>
+                  <do_elseif value="event.param.owner ==  faction.xenon">
+                      <set_value name="$killinfo" exact="'%1\033R%1'.[$killinfo,@event.object.macro.name]"/>
+                  </do_elseif>
+                  <do_else>
+                      <set_value name="$killinfo" exact="'%1\033Y%1'.[$killinfo,@event.object.macro.name]"/>
+                  </do_else>
+                  
+                  <!-- Internal Managment -->
                   <do_if value="event.object.owner == faction.plutarch">
                     <remove_from_group object="event.object" group="$bluefleet"/>
                     <do_if value="$bluefleet.count == 0 ">
-                      <show_help custom="'\033RRED - » %1 « - WINS\033X'.[$fleetnames.{$redfleetid}]" position="1" duration="120s"/>
+                      <show_help custom="'\033RRED - » %1 « - WINS\033X%2'.[$fleetnames.{$redfleetid},$killinfo]" position="1" duration="60s"/>
                       <set_value name="$Battle_ongoing" exact="false"/>
                       <signal_cue cue="Fleet_Destroyed"/>
                     </do_if>
-                    <do_else>
-                      <append_to_list name="$killlist" exact="'\n\033R%1 %2 \033B%3\033X'.[@event.param.macro.name,$cause,@event.object.macro.name]"/>
-                    </do_else>
                   </do_if>
                   <do_elseif value="event.object.owner == faction.xenon">
                     <remove_from_group object="event.object" group="$redfleet"/>
                     <remove_help/>
                     <do_if value=" $redfleet.count == 0 ">
-                      <show_help custom="'\033BBLUE - » %1 « - WINS\033X'.[$fleetnames.{$bluefleetid}]" position="1" duration="120s"/>
+                      <show_help custom="'\033BBLUE - » %1 « - WINS\033X%2'.[$fleetnames.{$bluefleetid},$killinfo]" position="1" duration="60s"/>
                       <set_value name="$Battle_ongoing" exact="false"/>
                       <signal_cue cue="Fleet_Destroyed"/>
                     </do_if>
-                    <do_else>
-                      <append_to_list name="$killlist" exact="'\n\033B%1 %2 \033R%3\033X'.[@event.param.macro.name,$cause,@event.object.macro.name]"/>
-                    </do_else>
                   </do_elseif>
-                  <set_value name="$message" exact="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
-                  <do_all exact="$killlist.count" counter="$i">
-                    <set_value name="$message"  exact="$message + $killlist.{$i}"/>
-                  </do_all>
+                  
+                  <do_if value="$Battle_ongoing">
+                    <append_to_list name="$killlist" exact="$killinfo"/>
+                    <set_value name="$message" exact="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
+                    <do_if value="$killlist.count gt 10">
+                      <remove_value name="$killlist.{1}"/>
+                    </do_if>
+                    <do_all exact="$killlist.count" counter="$i">
+                      <set_value name="$message"  exact="$message + $killlist.{$i}"/>
+                    </do_all>
                   <show_help custom="$message" position="0" duration="10min"/>
+                  </do_if>
                 </do_if>
               </actions>
             </cue>
@@ -359,7 +397,7 @@
               <conditions>
                 <event_cue_signalled/>
               </conditions>
-              <delay exact="120s"/>
+              <delay exact="70s"/>
               <actions>
                 <destroy_group group="$wrecks"/>
                 <destroy_group group="$bluefleet"/>
