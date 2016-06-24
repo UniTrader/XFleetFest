@@ -344,7 +344,7 @@
                   </do_else>
                   <!-- Killmethod -->
                   <do_if value="event.param2 == killmethod.hitbybullet">
-                    <set_value name="$killinfo" exact="$killinfo + ' »»›»» '"/>
+                    <set_value name="$killinfo" exact="$killinfo + ' »›»» '"/>
                   </do_if>
                   <do_elseif value="event.param2 == killmethod.hitbymissile">
                     <set_value name="$killinfo" exact="$killinfo + ' => => '"/>
@@ -353,7 +353,7 @@
                     <set_value name="$killinfo" exact="$killinfo + 'Selfdestructed '"/>
                   </do_elseif>
                   <do_else>
-                    <set_value name="$killinfo" exact="$killinfo + ' »???» '"/>
+                    <set_value name="$killinfo" exact="$killinfo + ' »??» '"/>
                   </do_else>
                   <!-- Killed -->
                   <do_if value="event.object.owner ==  faction.plutarch">
