@@ -16,6 +16,7 @@
         <set_value name="$greenfleetid" exact="0" comment="currently using empty dummy entry"/>
         <set_value name="$bluescripts" exact="$scriptconfigs.{1}"/>
         <set_value name="$redscripts" exact="$scriptconfigs.{1}"/>
+        <set_value name="$greenscripts" exact="$scriptconfigs.{1}"/>
         
         <set_value name="$cluster" exact="player.primaryship.cluster"/>
         <set_value name="$sector" exact="player.primaryship.sector"/>
@@ -316,7 +317,7 @@
             <create_group groupname="$greenfleet"/>
             <do_all exact="$fleetconfigs.{$greenfleetid}.count" counter="$i">
               <create_ship groupname="$greenfleet" name="$ship" macro="$fleetconfigs.{$greenfleetid}.{$i}.{1}" zone="$zone">
-                <owner exact="faction.player"/>
+                <owner exact="faction.heartofalbion"/>
                 <pilot macro="character_split_m_a_macro">
                   <owner exact="faction.plutarch"/>
                   <skills>
@@ -359,10 +360,10 @@
                 <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
                 <safepos x="10km" y="0m" z="-17.321km" radius="2km"/>
               </create_ship>
-              <set_cover_owner object="$ship" faction="faction.heartofalbion"/>
-              <set_cover_owner object="$ship.pilot" faction="faction.heartofalbion"/>
-              <set_cover_owner object="$ship.defense" faction="faction.heartofalbion"/>
-              <set_cover_owner object="$ship.engineer" faction="faction.heartofalbion"/>
+              <set_cover_owner object="$ship" faction="faction.player"/>
+              <set_cover_owner object="$ship.pilot" faction="faction.player"/>
+              <set_cover_owner object="$ship.defense" faction="faction.player"/>
+              <set_cover_owner object="$ship.engineer" faction="faction.player"/>
               <do_all exact="( $fleetconfigs.{$greenfleetid}.{$i}.count - 2 ) /2" counter="$j">
                 <add_units object="$ship" macro="$fleetconfigs.{$greenfleetid}.{$i}.{ ($j*2)+1 }" exact="$fleetconfigs.{$greenfleetid}.{$i}.{ ($j*2)+2 }"/>
               </do_all>
