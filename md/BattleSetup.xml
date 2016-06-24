@@ -79,7 +79,7 @@
                 <add_player_choice text="$scriptconfigs.{$i}.$displayname" position="$i" section="BattleSetup_Fleetconfig_Script_Selected" choiceparam="$i"/>
               </do_all>
             </do_elseif>
-            <do_elseif value="event.param == 'BattleSetup_Fleetconfit_Scripg_Selected'">
+            <do_elseif value="event.param == 'BattleSetup_Fleetconfit_Script_Selected'">
               <do_if value="$fleetcolor == 'blue'">
                 <set_value name="$bluescripts" exact="$scriptconfigs.{event.param2}"/>
               </do_if>
@@ -89,8 +89,8 @@
               <do_elseif value="$fleetcolor == 'green'">
                 <set_value name="$greenscripts" exact="$scriptconfigs.{event.param2}"/>
               </do_elseif>
-              <!--signal_cue cue="BattleSetup_main" /-->
-              <add_player_choice_return text="'Script Selected'"/>
+              <signal_cue cue="BattleSetup_main" />
+              <!--add_player_choice_return text="'Script Selected'"/-->
             </do_elseif>
           </actions>
         </cue>
