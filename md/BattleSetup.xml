@@ -325,7 +325,7 @@
                   <!-- Prepare Info Display -->
                   <!-- Killer Info - display name in Faction Color -->
                   <do_if value="not event.param.exists">
-                    <set_value name="$killinfo" exact="'\n¹¹¹¹'" comment="¹ displays as ?-Box"/>
+                    <set_value name="$killinfo" exact="'\n\033X'"/>
                   </do_if>
                   <do_elseif value="event.param.owner ==  faction.plutarch">
                       <set_value name="$killinfo" exact="'\n\033B%1'.[@event.param.macro.name]"/>
@@ -341,13 +341,13 @@
                     <set_value name="$killinfo" exact="$killinfo + ' » » » '"/>
                   </do_if>
                   <do_elseif value="event.param2 == killmethod.hitbymissile">
-                    <set_value name="$killinfo" exact="$killinfo + ' #> #> '"/>
+                    <set_value name="$killinfo" exact="$killinfo + ' => => '"/>
                   </do_elseif>
                   <do_elseif value="event.param2 == killmethod.selfdestructed">
-                    <set_value name="$killinfo" exact="$killinfo + ' selfd '"/>
+                    <set_value name="$killinfo" exact="$killinfo + 'Selfdestructed '"/>
                   </do_elseif>
                   <do_else>
-                    <set_value name="$killinfo" exact="$killinfo + ' ¹¹¹¹» '"/>
+                    <set_value name="$killinfo" exact="$killinfo + ' »???» '"/>
                   </do_else>
                   <!-- Killed -->
                   <do_if value="event.object.owner ==  faction.plutarch">
