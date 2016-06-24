@@ -28,6 +28,10 @@
         <add_faction_relation faction="faction.xenon" otherfaction="faction.player" value="-1.00"/>
         <add_faction_relation faction="faction.xenon" otherfaction="faction.player" value="1.00"/>
         <add_faction_relation faction="faction.xenon" otherfaction="faction.player" value="-0.01"/>
+        <!-- Set all Involved Battle Factions to be mutual Enemies -->
+        <add_faction_relation faction="faction.xenon" otherfaction="faction.heartofalbion" value="-1.00"/>
+        <add_faction_relation faction="faction.heartofalbion" otherfaction="faction.plutarch" value="-1.00"/>
+        <add_faction_relation faction="faction.plutarch" otherfaction="faction.xenon" value="-1.00"/>
         <!-- Relation is not set-able directly, so first setting it to min, then to neutral and last to enemy, but not Kill on Sight (for DV local Stations) -->
         <add_faction_relation faction="faction.reivers" otherfaction="faction.player" value="-1.00"/>
         <add_faction_relation faction="faction.reivers" otherfaction="faction.player" value="1.00"/>
@@ -51,7 +55,7 @@
             <allow_conversation_escape enabled="false"/>
             <add_player_choice_sub text="'\033BBlue: %1\033X'.[$fleetnames.{$bluefleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'blue'" position="top_left"/>
             <add_player_choice_sub text="'\033RRed: %1\033X'.[$fleetnames.{$redfleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'red'" position="top_right"/>
-            <add_player_choice_sub text="'\033GGreen: %1\033X'.[$fleetnames.{$greenfleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'green'" position="left" selectable="false" comment="not yet implemented - just reserving the spot"/>
+            <add_player_choice_sub text="'\033GGreen: %1\033X'.[$fleetnames.{$greenfleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'green'" position="left" selectable="true" comment="not yet implemented - just reserving the spot"/>
             <add_player_choice_sub text="'%1 - %2 - %3'.[$cluster.knownname,$sector.knownname,$zone.knownname]" section="BattleSetup_Sector_1" position="bottom_left"/>
             <add_player_choice_sub text="'Beginn Battle'" section="BattleSetup_Start" position="bottom_right"/>
           </actions>
@@ -234,22 +238,22 @@
                   </skills>
                 </engineer>
                 <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
-                <safepos x="0m" y="0m" z="-20km" radius="2km"/>
+                <safepos x="-10km" y="0m" z="-17.321km" radius="2km"/>
               </create_ship>
               <do_all exact="( $fleetconfigs.{$bluefleetid}.{$i}.count - 2 ) /2" counter="$j">
                 <add_units object="$ship" macro="$fleetconfigs.{$bluefleetid}.{$i}.{ ($j*2)+1 }" exact="$fleetconfigs.{$bluefleetid}.{$i}.{ ($j*2)+2 }"/>
               </do_all>
               <do_if value="$fleetconfigs.{$bluefleetid}.{$i}.{2} != 0 and $fleetconfigs.{$bluefleetid}.{$i}.{2} lt $i">
                 <set_object_commander object="$ship" commander="$bluefleet.{$fleetconfigs.{$bluefleetid}.{$i}.{2}}"/>
-                <start_script object="$ship.pilot" name="'move.escort.capital'">
+                <start_script object="$ship.pilot" name="$bluescripts.$subordinate">
                   <param name="target" value="$bluefleet.{$fleetconfigs.{$bluefleetid}.{$i}.{2}}"/>
                 </start_script>
               </do_if>
               <do_else>
-                <start_script object="$ship.pilot" name="'move.patrol'"/>
+                <start_script object="$ship.pilot" name="$bluescripts.$leader"/>
               </do_else>
-              <start_script object="$ship.engineer" name="'engineer.ai'"/>
-              <start_script object="$ship.defencenpc" name="'fight.defend.capital'"/>
+              <start_script object="$ship.engineer" name="$bluescripts.$engineer"/>
+              <start_script object="$ship.defencenpc" name="$bluescripts.$defense"/>
             </do_all>
             <create_group groupname="$redfleet"/>
             <do_all exact="$fleetconfigs.{$redfleetid}.count" counter="$i" reverse="false">
@@ -299,18 +303,82 @@
               </create_ship>
               <do_if value="$fleetconfigs.{$redfleetid}.{$i}.{2} != 0 and $fleetconfigs.{$redfleetid}.{$i}.{2} lt $i">
                 <set_object_commander object="$ship" commander="$redfleet.{$fleetconfigs.{$redfleetid}.{$i}.{2}}"/>
-                <start_script object="$ship.pilot" name="'move.escort.capital'">
+                <start_script object="$ship.pilot" name="$redscripts.$subordinate">
                   <param name="target" value="$redfleet.{$fleetconfigs.{$redfleetid}.{$i}.{2}}"/>
                 </start_script>
               </do_if>
               <do_else>
-                <start_script object="$ship.pilot" name="'move.patrol'"/>
+                <start_script object="$ship.pilot" name="$redscripts.$leader"/>
               </do_else>
-              <start_script object="$ship.engineer" name="'engineer.ai'"/>
-              <start_script object="$ship.defencenpc" name="'fight.defend.capital'"/>
+              <start_script object="$ship.engineer" name="$redscripts.$engineer"/>
+              <start_script object="$ship.defencenpc" name="$redscripts.$defense"/>
+            </do_all>
+            <create_group groupname="$greenfleet"/>
+            <do_all exact="$fleetconfigs.{$greenfleetid}.count" counter="$i">
+              <create_ship groupname="$greenfleet" name="$ship" macro="$fleetconfigs.{$greenfleetid}.{$i}.{1}" zone="$zone">
+                <owner exact="faction.player"/>
+                <pilot macro="character_split_m_a_macro">
+                  <owner exact="faction.plutarch"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </pilot>
+                <defence macro="character_split_m_a_macro">
+                  <owner exact="faction.plutarch"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </defence>
+                <engineer macro="character_split_m_a_macro">
+                  <owner exact="faction.plutarch"/>
+                  <skills>
+                    <skill type="boarding" exact="5"/>
+                    <skill type="combat" exact="5"/>
+                    <skill type="engineering" exact="5"/>
+                    <skill type="leadership" exact="5"/>
+                    <skill type="management" exact="5"/>
+                    <skill type="morale" exact="5"/>
+                    <skill type="navigation" exact="5"/>
+                    <skill type="science" exact="5"/>
+                  </skills>
+                </engineer>
+                <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
+                <safepos x="10km" y="0m" z="-17.321km" radius="2km"/>
+              </create_ship>
+              <set_cover_owner object="$ship" faction="faction.heartofalbion"/>
+              <set_cover_owner object="$ship.pilot" faction="faction.heartofalbion"/>
+              <set_cover_owner object="$ship.defense" faction="faction.heartofalbion"/>
+              <set_cover_owner object="$ship.engineer" faction="faction.heartofalbion"/>
+              <do_all exact="( $fleetconfigs.{$greenfleetid}.{$i}.count - 2 ) /2" counter="$j">
+                <add_units object="$ship" macro="$fleetconfigs.{$greenfleetid}.{$i}.{ ($j*2)+1 }" exact="$fleetconfigs.{$greenfleetid}.{$i}.{ ($j*2)+2 }"/>
+              </do_all>
+              <do_if value="$fleetconfigs.{$greenfleetid}.{$i}.{2} != 0 and $fleetconfigs.{$greenfleetid}.{$i}.{2} lt $i">
+                <set_object_commander object="$ship" commander="$greenfleet.{$fleetconfigs.{$greenfleetid}.{$i}.{2}}"/>
+                <start_script object="$ship.pilot" name="$greenscripts.$subordinate">
+                  <param name="target" value="$greenfleet.{$fleetconfigs.{$greenfleetid}.{$i}.{2}}"/>
+                </start_script>
+              </do_if>
+              <do_else>
+                <start_script object="$ship.pilot" name="$greenscripts.$leader"/>
+              </do_else>
+              <start_script object="$ship.engineer" name="$greenscripts.$engineer"/>
+              <start_script object="$ship.defencenpc" name="$greenscripts.$defense"/>
             </do_all>
             <set_value name="$Battle_ongoing" exact="true"/>
-            <show_help custom="'\033B%1 / %2\033X                    \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}]" position="0" duration="10min" silent="true"/>
             <set_value name="$killlist" exact="[]"/>
           </actions>
           <cues>
@@ -319,6 +387,7 @@
                 <check_any>
                   <event_object_destroyed group="$bluefleet"/>
                   <event_object_destroyed group="$redfleet"/>
+                  <event_object_destroyed group="$greenfleet"/>
                 </check_any>
               </conditions>
               <actions>
