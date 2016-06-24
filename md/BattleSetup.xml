@@ -307,7 +307,8 @@
               <start_script object="$ship.defencenpc" name="'fight.defend.capital'"/>
             </do_all>
             <set_value name="$Battle_ongoing" exact="true"/>
-            <show_help custom="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid" position="0" duration="10min" silent="true"/>
+            <show_help custom="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}]" position="0" duration="10min" silent="true"/>
+            <set_value name="$killlist" exact="[]"/>
           </actions>
           <cues>
             <cue name="Destroyed_Ship" instantiate="true">
@@ -321,9 +322,8 @@
                 <do_if value="$Battle_ongoing == true">
                   <add_to_group object="event.object" groupname="$wrecks"/>
                   <remove_help all="true"/>
-                  <set_value name="$shipcounts" exact="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
                   <!-- event.param2 == killmethod - add this info, too -->
-                  <set_value name="$cause" exact="'Destroyed'"/>
+                  <set_value name="$cause" exact="'»»»»'"/>
                   <do_if value="event.object.owner == faction.plutarch">
                     <remove_from_group object="event.object" group="$bluefleet"/>
                     <do_if value="$bluefleet.count == 0 ">
@@ -332,7 +332,7 @@
                       <signal_cue cue="Fleet_Destroyed"/>
                     </do_if>
                     <do_else>
-                      <show_help custom="'%1\n\033R%2\n%3\n\033B%4\033X'.[$shipcounts,@event.param.knownname,$cause,@event.object.knownname]" position="0" duration="10min" silent="true"/>
+                      <append_to_list name="$killist" exact="'033R%2 %3 \033B%4\033X'.[@event.param.macro.name,$cause,@event.object.macro.name]"/>
                     </do_else>
                   </do_if>
                   <do_elseif value="event.object.owner == faction.xenon">
@@ -344,9 +344,14 @@
                       <signal_cue cue="Fleet_Destroyed"/>
                     </do_if>
                     <do_else>
-                      <show_help custom="'%1\n\033B%2\n%3\n\033R%4\033X'.[$shipcounts,@event.param.knownname,$cause,@event.object.knownname]" position="0" duration="10min" silent="true"/>
+                      <append_to_list name="$killist" exact="'\n033B%2 %3 \033R%4\033X'.[@event.param.macro.name,$cause,@event.object.macro.name]"/>
                     </do_else>
                   </do_elseif>
+                  <set_value name="$message" exact="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
+                  <do_all exact="$killist.count" counter="$i">
+                    <set_value name="$message" operation="add" exact="$killist.{$i}"/>
+                  </do_all>
+                  <show_help custom="$message" position="0" duration="10min"/>
                 </do_if>
               </actions>
             </cue>
