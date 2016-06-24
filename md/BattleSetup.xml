@@ -50,8 +50,8 @@
           <actions>
             <allow_conversation_escape enabled="false"/>
             <add_player_choice_sub text="'\033BBlue: %1\033X'.[$fleetnames.{$bluefleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'blue'" position="top_left"/>
-            <add_player_choice_sub text="'\033RRed: %1\033X'.[$fleetnames.{$redfleetid}]" section="BattleSetup_Fleetonfig" choiceparam="'red'" position="top_right"/>
-            <add_player_choice_sub text="'\033GGreen: %1\033X'.[$fleetnames.{$greenfleetid}]" section="BattleSetup_Fleetonfig" choiceparam="'green'" position="left" selectable="false" comment="not yet implemented - just reserving the spot"/>
+            <add_player_choice_sub text="'\033RRed: %1\033X'.[$fleetnames.{$redfleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'red'" position="top_right"/>
+            <add_player_choice_sub text="'\033GGreen: %1\033X'.[$fleetnames.{$greenfleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'green'" position="left" selectable="false" comment="not yet implemented - just reserving the spot"/>
             <add_player_choice_sub text="'%1 - %2 - %3'.[$cluster.knownname,$sector.knownname,$zone.knownname]" section="BattleSetup_Sector_1" position="bottom_left"/>
             <add_player_choice_sub text="'Beginn Battle'" section="BattleSetup_Start" position="bottom_right"/>
           </actions>
