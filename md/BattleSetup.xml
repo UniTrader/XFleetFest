@@ -332,7 +332,7 @@
                       <signal_cue cue="Fleet_Destroyed"/>
                     </do_if>
                     <do_else>
-                      <append_to_list name="$killlist" exact="'\n\033R%2 %3 \033B%4\033X'.[@event.param.macro.name,$cause,@event.object.macro.name]"/>
+                      <append_to_list name="$killlist" exact="'\n\033R%1 %2 \033B%3\033X'.[@event.param.macro.name,$cause,@event.object.macro.name]"/>
                     </do_else>
                   </do_if>
                   <do_elseif value="event.object.owner == faction.xenon">
@@ -344,7 +344,7 @@
                       <signal_cue cue="Fleet_Destroyed"/>
                     </do_if>
                     <do_else>
-                      <append_to_list name="$killlist" exact="'\n\033B%2 %3 \033R%4\033X'.[@event.param.macro.name,$cause,@event.object.macro.name]"/>
+                      <append_to_list name="$killlist" exact="'\n\033B%1 %2 \033R%3\033X'.[@event.param.macro.name,$cause,@event.object.macro.name]"/>
                     </do_else>
                   </do_elseif>
                   <set_value name="$message" exact="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
