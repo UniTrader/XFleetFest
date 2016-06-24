@@ -112,7 +112,7 @@
                 <set_value name="$redfleetid" exact="event.param2"/>
               </do_elseif>
               <do_if value="$fleetcolor == 'green'">
-                <set_value name="$greenfleeidt" exact="event.param2"/>
+                <set_value name="$greenfleetid" exact="event.param2"/>
               </do_if>
               <signal_cue cue="BattleSetup_main" />
             </do_if>
