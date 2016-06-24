@@ -349,7 +349,7 @@
                   </do_elseif>
                   <set_value name="$message" exact="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
                   <do_all exact="$killlist.count" counter="$i">
-                    <set_value name="$message"  exact="$message + $killist.{$i}"/>
+                    <set_value name="$message"  exact="$message + $killlist.{$i}"/>
                   </do_all>
                   <show_help custom="$message" position="0" duration="10min"/>
                 </do_if>
