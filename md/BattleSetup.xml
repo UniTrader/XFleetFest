@@ -400,14 +400,14 @@
                   <do_if value="$Battle_ongoing">
                     <append_to_list name="$killlist" exact="$killinfo"/>
                     <set_value name="$message" exact="''"/>
-                    <do_if value="$fleetconfigs.{$bluefleetid}.count">
-                      <set_value name="$message" exact="'%1\033B%2 / %3\033X'.[$message,$bluefleet.count,$fleetconfigs.{$bluefleetid}.count]"/>
-                    </do_if>
                     <do_if value="$fleetconfigs.{$redfleetid}.count">
-                      <set_value name="$message" exact="'%1\033B%2 / %3\033X'.[$message,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
+                      <set_value name="$message" exact="'%1\033R%2 / %3\033X '.[$message,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
                     </do_if>
                     <do_if value="$fleetconfigs.{$greenfleetid}.count">
-                      <set_value name="$message" exact="'%1\033B%2 / %3\033X'.[$message,$greenfleet.count,$fleetconfigs.{$greenfleetid}.count]"/>
+                      <set_value name="$message" exact="'%1\033G%2 / %3\033X '.[$message,$greenfleet.count,$fleetconfigs.{$greenfleetid}.count]"/>
+                    </do_if>
+                    <do_if value="$fleetconfigs.{$bluefleetid}.count">
+                      <set_value name="$message" exact="'%1\033B%2 / %3\033X '.[$message,$bluefleet.count,$fleetconfigs.{$bluefleetid}.count]"/>
                     </do_if>
                     <do_if value="$killlist.count gt 10">
                       <remove_value name="$killlist.{1}"/>
