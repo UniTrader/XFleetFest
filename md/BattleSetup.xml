@@ -340,24 +340,24 @@
                   <do_if value="event.param2 == killmethod.hitbybullet">
                     <set_value name="$killinfo" exact="$killinfo + ' » » » '"/>
                   </do_if>
-                  <do_if value="event.param2 == killmethod.hitbymissile">
+                  <do_elseif value="event.param2 == killmethod.hitbymissile">
                     <set_value name="$killinfo" exact="$killinfo + ' #> #> '"/>
-                  </do_if>
-                  <do_if value="event.param2 == killmethod.selfdestructed">
+                  </do_elseif>
+                  <do_elseif value="event.param2 == killmethod.selfdestructed">
                     <set_value name="$killinfo" exact="$killinfo + ' selfd '"/>
-                  </do_if>
+                  </do_elseif>
                   <do_else>
                     <set_value name="$killinfo" exact="$killinfo + ' ¹¹¹¹» '"/>
                   </do_else>
                   <!-- Killed -->
                   <do_if value="event.object.owner ==  faction.plutarch">
-                      <set_value name="$killinfo" exact="'%1\033B%1'.[$killinfo,@event.object.macro.name]"/>
+                      <set_value name="$killinfo" exact="'%1\033B%2'.[$killinfo,@event.object.macro.name]"/>
                   </do_if>
                   <do_elseif value="event.param.owner ==  faction.xenon">
-                      <set_value name="$killinfo" exact="'%1\033R%1'.[$killinfo,@event.object.macro.name]"/>
+                      <set_value name="$killinfo" exact="'%1\033R%2'.[$killinfo,@event.object.macro.name]"/>
                   </do_elseif>
                   <do_else>
-                      <set_value name="$killinfo" exact="'%1\033Y%1'.[$killinfo,@event.object.macro.name]"/>
+                      <set_value name="$killinfo" exact="'%1\033Y%2'.[$killinfo,@event.object.macro.name]"/>
                   </do_else>
                   
                   <!-- Internal Managment -->
