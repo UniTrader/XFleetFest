@@ -6,53 +6,21 @@
         <event_cue_signalled cue="md.Setup.GameStart"/>
       </conditions>
       <actions>
-        <!-- Static Fleet Info - maybe parse it from a t-file or something? -->
-        <!-- $fleetnames is just a list of the Names for the Fleets in $fleetconfigs, same index refers to same Fleet -->
-        <!-- Fleet Definition: [ macro.first_ship , index#.leader , macro.drone1 , count , macro.drone2 , count, .... ] , [ macro.second_ship , ... ] ... ] -->
-        <set_value name="$fleetnames" exact="[]"/>
-        <set_value name="$fleetconfigs" exact="[]"/>
-        <!-- not to be included in Demo Version
-        <append_to_list name="$fleetnames" exact="'1 Lyramekron'"/>
-        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_cs_omicron_ship_04_macro , 0 ] ]"/>
-        <append_to_list name="$fleetnames" exact="'1 Arawn with 150 Welders'"/>
-        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_1_macro , 0 , macro.units_size_xs_welder_drone_macro , 150 ] ]"/>
-        <append_to_list name="$fleetnames" exact="'3 Taranis'"/>
-        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_2_macro , 0 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] ]"/>
-        <append_to_list name="$fleetnames" exact="'5 Arawn'"/>
-        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_1_macro , 0 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] ]"/>-->
-        <append_to_list name="$fleetnames" exact="'UT Albion Fleet'"/>
-        <append_to_list name="$fleetconfigs" exact="[ 
-        [ macro.units_size_xl_capital_destroyer_1_macro , 0 ] , 
-        [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , 
-        [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , 
-        [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , 
-        [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] 
-        ]"/>
-        <append_to_list name="$fleetnames" exact="'13 Taranis'"/>
-        <append_to_list name="$fleetconfigs" exact="[ 
-        [ macro.units_size_xl_capital_destroyer_2_macro , 0 ] ,
-        [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , 
-        [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , 
-        [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , 
-        [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] 
-        ]"/>
-        <append_to_list name="$fleetnames" exact="'31 Balor'"/>
-        <append_to_list name="$fleetconfigs" exact="[ 
-        [ macro.units_size_l_single_attack_ship_macro , 0 ] ,
-[ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] ,
-[ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , 
-[ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , 
-[ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , 
-[ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , 
-[ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , 
-[ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] 
-        ]"/>
+        <!-- Load Configured Fleets -->
+        <include_actions ref="md.Settings.SetupFleets"/>
+        <!-- Load available Script Configurations -->
+        <include_actions ref="md.Settings.SetupScripts"/>
         <!-- some default Start Values, can be changed with the Battle Config -->
         <set_value name="$bluefleetid" exact="1"/>
         <set_value name="$redfleetid" exact="2"/>
+        <set_value name="$greenfleetid" exact="0" comment="currently using empty dummy entry"/>
+        <set_value name="$bluescripts" exact="$scriptconfigs.{1}"/>
+        <set_value name="$redscripts" exact="$scriptconfigs.{1}"/>
+        
         <set_value name="$cluster" exact="player.primaryship.cluster"/>
         <set_value name="$sector" exact="player.primaryship.sector"/>
         <set_value name="$zone" exact="player.primaryship.zone"/>
+        
         <start_conversation actor="player.copilot" conversation="BattleSetup"/>
         <set_object_min_hull object="player.primaryship" exact="player.primaryship.maxhull"/>
         <set_object_min_shield object="player.primaryship" exact="player.primaryship.maxshield"/>
@@ -81,11 +49,49 @@
           <!-- for correct Setting& Display of selected Fleet (see next cue "BattleSetup_Fleet") and Sector (see cue "BattleSetup_Sector" ) -->
           <actions>
             <allow_conversation_escape enabled="false"/>
-            <add_player_choice_sub text="'\033BBlue: %1\033X'.[$fleetnames.{$bluefleetid}]" section="BattleSetup_Fleet_Blue" position="top_left"/>
-            <add_player_choice_sub text="'\033RRed: %1\033X'.[$fleetnames.{$redfleetid}]" section="BattleSetup_Fleet_Red" position="top_right"/>
-            <add_player_choice_sub text="'Sector: %1 - %2'.[$cluster.knownname,$sector.knownname]" section="BattleSetup_Sector_1" position="left"/>
-            <add_player_choice_sub text="'Field: %1'.[$zone.knownname]" section="BattleSetup_Sector_1" position="right"/>
+            <add_player_choice_sub text="'\033BBlue: %1\033X'.[$fleetnames.{$bluefleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'blue'" position="top_left"/>
+            <add_player_choice_sub text="'\033RRed: %1\033X'.[$fleetnames.{$redfleetid}]" section="BattleSetup_Fleetonfig" choiceparam="'red'" position="top_right"/>
+            <add_player_choice_sub text="'\033GSGreen: %1\033X'.[$fleetnames.{$greenfleetid}]" section="BattleSetup_Fleetonfig" choiceparam="'green'" position="left" selectable="false" comment="not yet implemented - just reserving the spot"/>
+            <add_player_choice_sub text="'%1 - %2 - %3'.[$cluster.knownname,$sector.knownname,$zone.knownname]" section="BattleSetup_Sector_1" position="bottom_left"/>
             <add_player_choice_sub text="'Beginn Battle'" section="BattleSetup_Start" position="bottom_right"/>
+          </actions>
+        </cue>
+        <cue name="BattleSetup_Fleetconfig" instantiate="true">
+          <conditions>
+            <check_any>
+              <event_conversation_next_section sectionprefix="BattleSetup_Fleetconfig"/>
+              <event_conversation_returned_to_section sectionprefix="BattleSetup_Fleetconfig"/>
+            </check_any>
+          </conditions>
+          <actions>
+            <do_if value="event.param == 'BattleSetup_Fleetconfig'">
+              <do_if value="event.name == 'event_conversation_next_section'">
+                <set_value name="$fleetcolor" exact="event.param2" comment="choiceparam"/>
+              </do_if>
+              <add_player_choice_sub text="'Select Fleet Composition'" section="BattleSetup_Fleet_Select" position="1"/>
+              <add_player_choice_sub text="'Select Fleet Scripts'" section="BattleSetup_Fleetconfig_Select_Script" position="2"/>
+              <add_player_choice_return text="Done - return" position="6"/>
+            </do_if>
+            <!-- ##############################-->
+            <!-- Script Package Selection Stuff -->
+            <do_elseif value="event.param == 'BattleSetup_Fleetconfig_Select_Script'">
+              <do_all exact="$scriptconfigs.count" counter="$i">
+                <add_player_choice text="$scriptconfigs.{$i}.$displayname" position="$i" section="BattleSetup_Fleetconfig_Script_Selected" choiceparam="$i"/>
+              </do_all>
+            </do_elseif>
+            <do_elseif value="event.param == 'BattleSetup_Fleetconfit_Scripg_Selected'">
+              <do_if value="$fleetcolor == 'blue'">
+                <set_value name="$bluescripts" exact="$scriptconfigs.{event.param2}"/>
+              </do_if>
+              <do_elseif value="$fleetcolor == 'red'">
+                <set_value name="$redscripts" exact="$scriptconfigs.{event.param2}"/>
+              </do_elseif>
+              <do_elseif value="$fleetcolor == 'green'">
+                <set_value name="$greenscripts" exact="$scriptconfigs.{event.param2}"/>
+              </do_elseif>
+              <signal_cue cue="BattleSetup_main" />
+              <!--add_player_choice_return text="'Script Selected'"/-->
+            </do_elseif>
           </actions>
         </cue>
         <cue name="BattleSetup_Fleet" instantiate="true">
@@ -107,21 +113,18 @@
               <signal_cue cue="BattleSetup_main" />
             </do_if>
             <do_else>
-              <do_if value="event.param == 'BattleSetup_Fleet_Blue'">
-                <set_value name="$fleetselect" exact="$bluefleetid"/>
-                <set_value name="$fleetcolor" exact="'blue'"/>
+              <do_if value="event.param == 'BattleSetup_Fleet_Select'">
+                <do_if value="$fleetcolor == 'blue'">
+                  <set_value name="$fleetselect" exact="$bluefleetid"/>
+                </do_if>
+                <do_elseif value="$fleetcolor == 'red'">
+                  <set_value name="$fleetselect" exact="$redfleetid"/>
+                </do_elseif>
+                <do_elseif value="$fleetcolor == 'green'">
+                  <set_value name="$fleetselect" exact="$greenfleetid"/>
+                </do_elseif>
                 <set_value name="$index" exact="0"/>
               </do_if>
-              <do_elseif value="event.param == 'BattleSetup_Fleet_Red'">
-                <set_value name="$fleetselect" exact="$redfleetid"/>
-                <set_value name="$fleetcolor" exact="'red'"/>
-                <set_value name="$index" exact="0"/>
-              </do_elseif>
-              <do_elseif value="event.param == 'BattleSetup_Fleet_Green'">
-                <set_value name="$fleetselect" exact="$greenfleet"/>
-                <set_value name="$fleetcolor" exact="'green'"/>
-                <set_value name="$index" exact="0"/>
-              </do_elseif>
               <do_elseif value="event.param == 'BattleSetup_Fleet_Next'">
                 <set_value name="$index" exact="event.param2"/>
               </do_elseif>
@@ -325,7 +328,7 @@
                   <!-- Prepare Info Display -->
                   <!-- Killer Info - display name in Faction Color -->
                   <do_if value="not event.param.exists">
-                    <set_value name="$killinfo" exact="'\n\033X'"/>
+                    <set_value name="$killinfo" exact="'\n\033Xµ'"/>
                   </do_if>
                   <do_elseif value="event.param.owner ==  faction.plutarch">
                       <set_value name="$killinfo" exact="'\n\033B%1'.[@event.param.macro.name]"/>
@@ -333,12 +336,15 @@
                   <do_elseif value="event.param.owner ==  faction.xenon">
                       <set_value name="$killinfo" exact="'\n\033R%1'.[@event.param.macro.name]"/>
                   </do_elseif>
+                  <do_elseif value="event.param.owner ==  faction.player">
+                      <set_value name="$killinfo" exact="'\n\033G%1'.[@event.param.macro.name]"/>
+                  </do_elseif>
                   <do_else>
                     <set_value name="$killinfo" exact="'\n\033Y%1'.[@event.param.macro.name]"/>
                   </do_else>
                   <!-- Killmethod -->
                   <do_if value="event.param2 == killmethod.hitbybullet">
-                    <set_value name="$killinfo" exact="$killinfo + ' » » » '"/>
+                    <set_value name="$killinfo" exact="$killinfo + ' »»›»» '"/>
                   </do_if>
                   <do_elseif value="event.param2 == killmethod.hitbymissile">
                     <set_value name="$killinfo" exact="$killinfo + ' => => '"/>
@@ -356,6 +362,9 @@
                   <do_elseif value="event.object.owner ==  faction.xenon">
                       <set_value name="$killinfo" exact="'%1\033R%2'.[$killinfo,@event.object.macro.name]"/>
                   </do_elseif>
+                  <do_elseif value="event.object.owner ==  faction.player">
+                      <set_value name="$killinfo" exact="'%1\033G%2'.[$killinfo,@event.object.macro.name]"/>
+                  </do_elseif>
                   <do_else>
                       <set_value name="$killinfo" exact="'%1\033Y%2'.[$killinfo,@event.object.macro.name]"/>
                   </do_else>
@@ -363,8 +372,8 @@
                   <!-- Internal Managment -->
                   <do_if value="event.object.owner == faction.plutarch">
                     <remove_from_group object="event.object" group="$bluefleet"/>
-                    <do_if value="$bluefleet.count == 0 ">
-                      <show_help custom="'\033RRED - » %1 « - WINS\033X%2'.[$fleetnames.{$redfleetid},$killinfo]" position="1" duration="60s"/>
+                    <do_if value="$bluefleet.count == 0 and $greenfleet.count == 0 ">
+                      <show_help custom="'\033RRED WINS\n- » %1 « -\033X%2'.[$fleetnames.{$redfleetid},$killinfo]" position="1" duration="60s"/>
                       <set_value name="$Battle_ongoing" exact="false"/>
                       <signal_cue cue="Fleet_Destroyed"/>
                     </do_if>
@@ -372,8 +381,17 @@
                   <do_elseif value="event.object.owner == faction.xenon">
                     <remove_from_group object="event.object" group="$redfleet"/>
                     <remove_help/>
-                    <do_if value=" $redfleet.count == 0 ">
-                      <show_help custom="'\033BBLUE - » %1 « - WINS\033X%2'.[$fleetnames.{$bluefleetid},$killinfo]" position="1" duration="60s"/>
+                    <do_if value=" $redfleet.count == 0 and $greenfleet.count == 0">
+                      <show_help custom="'\033BBLUE WINS\n- » %1 « -\033X%2'.[$fleetnames.{$bluefleetid},$killinfo]" position="1" duration="60s"/>
+                      <set_value name="$Battle_ongoing" exact="false"/>
+                      <signal_cue cue="Fleet_Destroyed"/>
+                    </do_if>
+                  </do_elseif>
+                  <do_elseif value="event.object.owner == faction.player">
+                    <remove_from_group object="event.object" group="$redfleet"/>
+                    <remove_help/>
+                    <do_if value=" $redfleet.count == 0 and bluefleet.count == 0">
+                      <show_help custom="'\033GGREEN WINS\n- » %1 « -\033X%2'.[$fleetnames.{greenfleetid},$killinfo]" position="1" duration="60s"/>
                       <set_value name="$Battle_ongoing" exact="false"/>
                       <signal_cue cue="Fleet_Destroyed"/>
                     </do_if>
@@ -381,7 +399,16 @@
                   
                   <do_if value="$Battle_ongoing">
                     <append_to_list name="$killlist" exact="$killinfo"/>
-                    <set_value name="$message" exact="'\033B%1 / %2\033X          \033R%3 / %4\033X'.[$bluefleet.count,$fleetconfigs.{$bluefleetid}.count,$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
+                    <set_value name="$message" exact="''"/>
+                    <do_if value="$fleetconfigs.{$bluefleetid}.count">
+                      <set_value name="$message" exact="'%1\033B%2 / %3\033X'.[$message.$bluefleet.count,$fleetconfigs.{$bluefleetid}.count]"/>
+                    </do_if>
+                    <do_if value="$fleetconfigs.{$redfleetid}.count">
+                      <set_value name="$message" exact="'%1\033B%2 / %3\033X'.[$message.$redfleet.count,$fleetconfigs.{$redfleetid}.count]"/>
+                    </do_if>
+                    <do_if value="$fleetconfigs.{$greenfleetid}.count">
+                      <set_value name="$message" exact="'%1\033B%2 / %3\033X'.[$message.$greenfleet.count,$fleetconfigs.{$greenfleetid}.count]"/>
+                    </do_if>
                     <do_if value="$killlist.count gt 10">
                       <remove_value name="$killlist.{1}"/>
                     </do_if>

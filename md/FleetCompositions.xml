@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mdscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Settings" xsi:noNamespaceSchemaLocation="http://utnas/~unitrader/XRebirthxsds/md.xsd">
+  <cues>
+    <library name="SetupFleets">
+      <!-- This File is used by BattleSetup via <include_actions/> -->
+      <actions>
+        <!-- Static Fleet Info - maybe parse it from a t-file or something? -->
+        <!-- $fleetnames is just a list of the Names for the Fleets in $fleetconfigs, same index refers to same Fleet -->
+        <!-- Fleet Definition: [ macro.first_ship , index#.leader , macro.drone1 , count , macro.drone2 , count, .... ] , [ macro.second_ship , ... ] ... ] -->
+        <set_value name="$fleetnames" exact="[]"/>
+        <set_value name="$fleetconfigs" exact="[]"/>
+        <!-- not to be included in Demo Version
+        <append_to_list name="$fleetnames" exact="'1 Lyramekron'"/>
+        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_cs_omicron_ship_04_macro , 0 ] ]"/>
+        <append_to_list name="$fleetnames" exact="'1 Arawn with 150 Welders'"/>
+        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_1_macro , 0 , macro.units_size_xs_welder_drone_macro , 150 ] ]"/>
+        <append_to_list name="$fleetnames" exact="'3 Taranis'"/>
+        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_2_macro , 0 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] ]"/>
+        <append_to_list name="$fleetnames" exact="'5 Arawn'"/>
+        <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_capital_destroyer_1_macro , 0 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_1_macro , 1 ] ]"/>-->
+        <append_to_list name="$fleetnames" exact="'UT Albion Fleet'"/>
+        <append_to_list name="$fleetconfigs" exact="[ 
+        [ macro.units_size_xl_capital_destroyer_1_macro , 0 ] , 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , 
+        [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , 
+        [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , 
+        [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] 
+        ]"/>
+        <append_to_list name="$fleetnames" exact="'13 Taranis'"/>
+        <append_to_list name="$fleetconfigs" exact="[ 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 0 ] ,
+        [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 1 ] , 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 2 ] , 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 3 ] , 
+        [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] , [ macro.units_size_xl_capital_destroyer_2_macro , 4 ] 
+        ]"/>
+        <append_to_list name="$fleetnames" exact="'31 Balor'"/>
+        <append_to_list name="$fleetconfigs" exact="[ 
+        [ macro.units_size_l_single_attack_ship_macro , 0 ] ,
+[ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] , [ macro.units_size_l_single_attack_ship_macro , 1 ] ,
+[ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , [ macro.units_size_l_single_attack_ship_macro , 2 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , [ macro.units_size_l_single_attack_ship_macro , 3 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , [ macro.units_size_l_single_attack_ship_macro , 4 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , [ macro.units_size_l_single_attack_ship_macro , 5 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , [ macro.units_size_l_single_attack_ship_macro , 6 ] , 
+[ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] 
+        ]"/>
+      </actions>
+    </library>
+    <library name="SetupScripts">
+      <actions>
+        <!-- 6 Script Configs supported only!!! more  dont fit in the dialogue -->
+        <set_value name="$scriptconfigs" exact="[]"/>
+        <append_to_list name="$scriptconfigs" exact="table[Sdisplayname='Vanilla Scripts',$leader='move.patrol',$subordinate='move.escort.capital',$defense='fight.defend.capital',$engineer='engineer.ai']"/>
+      </actions>
+    </library>
+  </cues>
+</mdscript>
