@@ -89,8 +89,8 @@
               <do_elseif value="$fleetcolor == 'green'">
                 <set_value name="$greenscripts" exact="$scriptconfigs.{event.param2}"/>
               </do_elseif>
-              <signal_cue cue="BattleSetup_main" />
-              <!--add_player_choice_return text="'Script Selected'"/-->
+              <!--signal_cue cue="BattleSetup_main" /-->
+              <add_player_choice_return text="'Script Selected'"/>
             </do_elseif>
           </actions>
         </cue>
