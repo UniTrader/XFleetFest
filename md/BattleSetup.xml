@@ -409,7 +409,7 @@
                     <do_if value="$fleetconfigs.{$bluefleetid}.count">
                       <set_value name="$message" exact="'%1\033B%2 / %3\033X '.[$message,$bluefleet.count,$fleetconfigs.{$bluefleetid}.count]"/>
                     </do_if>
-                    <do_if value="$killlist.count gt 10">
+                    <do_if value="$killlist.count gt 5">
                       <remove_value name="$killlist.{1}"/>
                     </do_if>
                     <do_all exact="$killlist.count" counter="$i">
