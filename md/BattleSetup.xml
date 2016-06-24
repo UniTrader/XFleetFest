@@ -51,7 +51,7 @@
             <allow_conversation_escape enabled="false"/>
             <add_player_choice_sub text="'\033BBlue: %1\033X'.[$fleetnames.{$bluefleetid}]" section="BattleSetup_Fleetconfig" choiceparam="'blue'" position="top_left"/>
             <add_player_choice_sub text="'\033RRed: %1\033X'.[$fleetnames.{$redfleetid}]" section="BattleSetup_Fleetonfig" choiceparam="'red'" position="top_right"/>
-            <add_player_choice_sub text="'\033GSGreen: %1\033X'.[$fleetnames.{$greenfleetid}]" section="BattleSetup_Fleetonfig" choiceparam="'green'" position="left" selectable="false" comment="not yet implemented - just reserving the spot"/>
+            <add_player_choice_sub text="'\033GGreen: %1\033X'.[$fleetnames.{$greenfleetid}]" section="BattleSetup_Fleetonfig" choiceparam="'green'" position="left" selectable="false" comment="not yet implemented - just reserving the spot"/>
             <add_player_choice_sub text="'%1 - %2 - %3'.[$cluster.knownname,$sector.knownname,$zone.knownname]" section="BattleSetup_Sector_1" position="bottom_left"/>
             <add_player_choice_sub text="'Beginn Battle'" section="BattleSetup_Start" position="bottom_right"/>
           </actions>
@@ -70,7 +70,7 @@
               </do_if>
               <add_player_choice_sub text="'Select Fleet Composition'" section="BattleSetup_Fleet_Select" position="1"/>
               <add_player_choice_sub text="'Select Fleet Scripts'" section="BattleSetup_Fleetconfig_Select_Script" position="2"/>
-              <add_player_choice_return text="Done - return" position="6"/>
+              <add_player_choice_return text="'Done - return'" position="6"/>
             </do_if>
             <!-- ##############################-->
             <!-- Script Package Selection Stuff -->
