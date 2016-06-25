@@ -384,6 +384,7 @@
             </do_all>
             <set_value name="$Battle_ongoing" exact="true"/>
             <set_value name="$killlist" exact="[]"/>
+            <set_value name="$killcount" exact="0"/>
           </actions>
           <cues>
             <cue name="Destroyed_Ship" instantiate="true">
@@ -399,22 +400,23 @@
                 <do_if value="$Battle_ongoing == true">
                   <add_to_group object="event.object" groupname="$wrecks"/>
                   <remove_help all="true"/>
+                  <set_value name="$killcount" operation="add"/>
                   <!-- Prepare Info Display -->
                   <!-- Killer Info - display name in Faction Color -->
                   <do_if value="not event.param.exists">
                     <set_value name="$killinfo" exact="'\n\033X        '"/>
                   </do_if>
                   <do_elseif value="event.param.owner ==  faction.plutarch">
-                      <set_value name="$killinfo" exact="'\n\033B%1'.[@event.param.macro.name]"/>
+                      <set_value name="$killinfo" exact="'\n%2 \033B%1'.[@event.param.macro.name,$killcount]"/>
                   </do_elseif>
                   <do_elseif value="event.param.owner ==  faction.xenon">
-                      <set_value name="$killinfo" exact="'\n\033R%1'.[@event.param.macro.name]"/>
+                      <set_value name="$killinfo" exact="'\n%2 \033R%1'.[@event.param.macro.name,$killcount]"/>
                   </do_elseif>
                   <do_elseif value="event.param.owner ==  faction.heartofalbion">
-                      <set_value name="$killinfo" exact="'\n\033G%1'.[@event.param.macro.name]"/>
+                      <set_value name="$killinfo" exact="'\n%2 \033G%1'.[@event.param.macro.name,$killcount]"/>
                   </do_elseif>
                   <do_else>
-                    <set_value name="$killinfo" exact="'\n\033Y%1'.[@event.param.macro.name]"/>
+                    <set_value name="$killinfo" exact="'\n%2 \033Y%1'.[@event.param.macro.name,$killcount]"/>
                   </do_else>
                   <!-- Killmethod -->
                   <do_if value="event.param2 == killmethod.hitbybullet">
@@ -443,7 +445,7 @@
                       <set_value name="$killinfo" exact="'%1\033Y%2'.[$killinfo,@event.object.macro.name]"/>
                   </do_else>
                   
-                  <!-- Internal Managment -->
+                  <!-- Internal Managment, Battle Ended-->
                   <do_if value="$bluefleet.count == 0 and $greenfleet.count == 0 ">
                     <show_help custom="'\033RRED WINS\n- » %1 « -\033X%2'.[$fleetnames.{$redfleetid},$killinfo]" position="1" duration="60s"/>
                     <set_value name="$Battle_ongoing" exact="false"/>
