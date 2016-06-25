@@ -239,7 +239,7 @@
                   </skills>
                 </engineer>
                 <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
-                <safepos x="-10km" y="0m" z="-17.321km" radius="2km"/>
+                <safepos x="-17.321km" y="0m" z="-10km" radius="2km"/>
               </create_ship>
               <do_all exact="( $fleetconfigs.{$bluefleetid}.{$i}.count - 2 ) /2" counter="$j">
                 <add_units object="$ship" macro="$fleetconfigs.{$bluefleetid}.{$i}.{ ($j*2)+1 }" exact="$fleetconfigs.{$bluefleetid}.{$i}.{ ($j*2)+2 }"/>
@@ -358,7 +358,7 @@
                   </skills>
                 </engineer>
                 <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
-                <safepos x="10km" y="0m" z="-17.321km" radius="2km"/>
+                <safepos x="17.321km" y="0m" z="-10km" radius="2km"/>
               </create_ship>
               <set_cover_owner object="$ship" faction="faction.heartofalbion"/>
               <set_cover_owner object="$ship.pilot" faction="faction.heartofalbion"/>
@@ -406,7 +406,7 @@
                   <do_elseif value="event.param.owner ==  faction.xenon">
                       <set_value name="$killinfo" exact="'\n\033R%1'.[@event.param.macro.name]"/>
                   </do_elseif>
-                  <do_elseif value="event.param.owner ==  faction.player">
+                  <do_elseif value="event.param.owner ==  faction.heartofalbion">
                       <set_value name="$killinfo" exact="'\n\033G%1'.[@event.param.macro.name]"/>
                   </do_elseif>
                   <do_else>
@@ -432,7 +432,7 @@
                   <do_elseif value="event.object.owner ==  faction.xenon">
                       <set_value name="$killinfo" exact="'%1\033R%2'.[$killinfo,@event.object.macro.name]"/>
                   </do_elseif>
-                  <do_elseif value="event.object.owner ==  faction.player">
+                  <do_elseif value="event.object.owner ==  faction.heartofalbion">
                       <set_value name="$killinfo" exact="'%1\033G%2'.[$killinfo,@event.object.macro.name]"/>
                   </do_elseif>
                   <do_else>
