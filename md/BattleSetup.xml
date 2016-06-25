@@ -394,6 +394,7 @@
                   <event_object_destroyed group="$greenfleet"/>
                 </check_any>
               </conditions>
+              <delay min="10ms" max="100ms" comment="to allow removal of Destroyed Ship from respective Group"/>
               <actions>
                 <do_if value="$Battle_ongoing == true">
                   <add_to_group object="event.object" groupname="$wrecks"/>
@@ -452,7 +453,7 @@
                     <show_help custom="'\033BBLUE WINS\n- » %1 « -\033X%2'.[$fleetnames.{$bluefleetid},$killinfo]" position="1" duration="60s"/>
                     <set_value name="$Battle_ongoing" exact="false"/>
                     <signal_cue cue="Fleet_Destroyed"/>
-                  </do_if>>
+                  </do_if>
                   <do_if value=" $redfleet.count == 0 and bluefleet.count == 0">
                     <show_help custom="'\033GGREEN WINS\n- » %1 « -\033X%2'.[$fleetnames.{greenfleetid},$killinfo]" position="1" duration="60s"/>
                     <set_value name="$Battle_ongoing" exact="false"/>
