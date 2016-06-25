@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff><add sel="//handler[@name='AttackHandler']/actions" pos="prepend"><remove_value name="$fleerespond"/></add></diff>
