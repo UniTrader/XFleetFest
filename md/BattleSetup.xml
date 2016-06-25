@@ -13,7 +13,7 @@
         <!-- some default Start Values, can be changed with the Battle Config -->
         <set_value name="$bluefleetid" exact="1"/>
         <set_value name="$redfleetid" exact="2"/>
-        <set_value name="$greenfleetid" exact="0" comment="currently using empty dummy entry"/>
+        <set_value name="$greenfleetid" exact="0"/>
         <set_value name="$bluescripts" exact="$scriptconfigs.{1}"/>
         <set_value name="$redscripts" exact="$scriptconfigs.{1}"/>
         <set_value name="$greenscripts" exact="$scriptconfigs.{1}"/>
@@ -133,6 +133,9 @@
               <do_elseif value="event.param == 'BattleSetup_Fleet_Next'">
                 <set_value name="$index" exact="event.param2"/>
               </do_elseif>
+              <do_if value="$fleetcolor == 'green' and $index == 0">
+                <add_player_choice_sub text="'No Green Fleet'" position="1" section="BattleSetup_Fleet_Selected" choiceparam="0"/>
+              </do_if>
               <do_all exact="5" counter="$i">
                 <set_value name="$ilast" exact="$i"/>
                 <do_if value="$fleetnames.{$index+$i}?">
@@ -239,8 +242,9 @@
                   </skills>
                 </engineer>
                 <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
-                <safepos x="-17.321km" y="0m" z="-10km" radius="2km"/>
+                <safepos x="if $greenfleetid then -17.321km else 0m" y="0m" z="if $greenfleetid then-10km else -20km" radius="2km"/>
               </create_ship>
+              <set_known object="$ship" known="true"/>
               <do_all exact="( $fleetconfigs.{$bluefleetid}.{$i}.count - 2 ) /2" counter="$j">
                 <add_units object="$ship" macro="$fleetconfigs.{$bluefleetid}.{$i}.{ ($j*2)+1 }" exact="$fleetconfigs.{$bluefleetid}.{$i}.{ ($j*2)+2 }"/>
               </do_all>
@@ -302,6 +306,7 @@
                 <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
                 <safepos x="0m" y="0m" z="20km" radius="2km"/>
               </create_ship>
+              <set_known object="$ship" known="true"/>
               <do_if value="$fleetconfigs.{$redfleetid}.{$i}.{2} != 0 and $fleetconfigs.{$redfleetid}.{$i}.{2} lt $i">
                 <set_object_commander object="$ship" commander="$redfleet.{$fleetconfigs.{$redfleetid}.{$i}.{2}}"/>
                 <start_script object="$ship.pilot" name="$redscripts.$subordinate">
@@ -360,6 +365,7 @@
                 <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
                 <safepos x="17.321km" y="0m" z="-10km" radius="2km"/>
               </create_ship>
+              <set_known object="$ship" known="true"/>
               <set_cover_owner object="$ship" faction="faction.heartofalbion"/>
               <set_cover_owner object="$ship.pilot" faction="faction.heartofalbion"/>
               <set_cover_owner object="$ship.defense" faction="faction.heartofalbion"/>
