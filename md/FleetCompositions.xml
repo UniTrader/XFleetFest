@@ -49,7 +49,12 @@
     </library>
     <library name="SetupScripts">
       <actions>
-        <!-- 6 Script Configs supported only!!! more  dont fit in the dialogue -->
+        <!-- 6 Script Configs supported only!!! more  dont fit in the dialoge
+        $leader Srcipt: will be Started on all Captains without Commander - no Parameters
+        $subordinate Script: will be started on all Captains with commander - Parameter $target == Commander/Formation leader
+        $defense Script: will be started on all Defense Officers
+        $engineer Script: will be started on all Engineers
+        -->
         <set_value name="$scriptconfigs" exact="[]"/>
         <append_to_list name="$scriptconfigs" exact="table[$displayname='Vanilla Scripts',$leader='move.patrol',$subordinate='move.escort.capital',$defense='fight.defend.capital',$engineer='engineer.ai']"/>
       </actions>
