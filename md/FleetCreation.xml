@@ -19,7 +19,7 @@
           <create_ship groupname="$spawnfleet" name="$ship" macro="$fleetconfigs.{$spawnfleetid}.{$i}.{1}" zone="$spawnfleetzone">
             <owner exact="$spawnfleetfaction"/>
             <pilot macro="character_split_m_a_macro">
-              <owner exact="if $spawnfleetisplayer then faction.player else $spawnfleetfaction"/>
+              <owner exact="if $spawnfleetisgreen then faction.player else $spawnfleetfaction"/>
               <skills>
                 <skill type="boarding" exact="5"/>
                 <skill type="combat" exact="5"/>
@@ -60,7 +60,7 @@
             <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
             <safepos value="$spawnfleetposition" radius="2km"/>
           </create_ship>
-          <do_if value="$spawnfleetisplayer">
+          <do_if value="$spawnfleetisgreen">
             <set_cover_owner object="$ship" faction="$spawnfleetfaction"/>
             <set_cover_owner object="$ship.pilot" faction="$spawnfleetfaction"/>
             <set_cover_owner object="$ship.defense" faction="$spawnfleetfaction"/>
