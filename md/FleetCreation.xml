@@ -16,6 +16,12 @@
         -->
         <create_group groupname="$spawnfleet"/>
         <do_all exact="$fleetconfigs.{$spawnfleetid}.count" counter="$i">
+          <do_if value="$fleetconfigs.{$spawnfleetid}.{$i}.{2}">
+            <get_safe_pos result="$safepos" zone="$spawnfleetzone" radius="2km" value="$spawnfleet.{$fleetconfigs.{$spawnfleetid}.{$i}.{2}}.position" directionobject="$spawnfleet.{$fleetconfigs.{$spawnfleetid}.{$i}.{2}}" direction="quadrant.back" angle="45deg"/>
+          </do_if>
+          <do_else>
+            <get_safe_pos result="$safepos" zone="$spawnfleetzone" radius="2km" value="$spawnfleetposition"/>
+          </do_else>
           <create_ship groupname="$spawnfleet" name="$ship" macro="$fleetconfigs.{$spawnfleetid}.{$i}.{1}" zone="$spawnfleetzone">
             <owner exact="$spawnfleetfaction"/>
             <pilot macro="character_split_m_a_macro">
@@ -58,7 +64,7 @@
               </skills>
             </engineer>
             <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
-            <safepos value="$spawnfleetposition" radius="2km"/>
+            <position value="$safepos"/>
           </create_ship>
           <do_if value="$spawnfleetisgreen">
             <set_cover_owner object="$ship" faction="$spawnfleetfaction"/>
