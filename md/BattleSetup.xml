@@ -208,6 +208,7 @@
             <set_value name="$spawnfleetscripts" exact= "$bluescripts"/>
             <include_actions ref="md.FleetCreation.CreateFleet"/>
             <set_value name="$bluefleet" exact="$spawnfleet"/>
+            <remove_value name="$spawnfleet"/>
             <!-- Create Red Fleet -->
             <set_value name="$spawnfleetid" exact="$redfleetid"/>
             <set_value name="$spawnfleetfaction" exact= "faction.xenon"/>
@@ -217,6 +218,7 @@
             <set_value name="$spawnfleetscripts" exact= "$redscripts"/>
             <include_actions ref="md.FleetCreation.CreateFleet"/>
             <set_value name="$redfleet" exact="$spawnfleet"/>
+            <remove_value name="$spawnfleet"/>
             <!-- Create Green Fleet -->
             <set_value name="$spawnfleetid" exact="$greenfleetid"/>
             <set_value name="$spawnfleetfaction" exact= "faction.heartofalbion"/>
@@ -226,6 +228,7 @@
             <set_value name="$spawnfleetscripts" exact= "$greenscripts"/>
             <include_actions ref="md.FleetCreation.CreateFleet"/>
             <set_value name="$greenfleet" exact="$spawnfleet"/>
+            <remove_value name="$spawnfleet"/>
           </actions>
           <cues>
             <cue name="Destroyed_Ship" instantiate="true">
