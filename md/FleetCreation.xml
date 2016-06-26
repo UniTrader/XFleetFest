@@ -86,9 +86,6 @@
           </do_else>
           <start_script object="$ship.engineer" name="$spawnfleetscripts.$engineer"/>
           <start_script object="$ship.defencenpc" name="$spawnfleetscripts.$defense"/>
-          <!-- make Dock Icon invisble for Player -->
-          <find_dock_location name="$playerdock" container="$ship" size="tag.dock_p"/>
-          <set_room_locked room="$playerdock.component" locked="true"/>
         </do_all>
       </actions>
     </library>
