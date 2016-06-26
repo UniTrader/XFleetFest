@@ -63,6 +63,9 @@
                 <skill type="science" exact="5"/>
               </skills>
             </engineer>
+            <units>
+              <unit category="unitcategory.welder" mk="1" exact="25"/>
+            </units>
             <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
             <position value="$safepos"/>
           </create_ship>
