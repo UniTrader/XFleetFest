@@ -206,7 +206,7 @@
             <set_value name="$spawnfleetid" exact="$bluefleetid"/>
             <set_value name="$spawnfleetfaction" exact= "faction.plutarch"/>
             <set_value name="$spawnfleetisgreen" exact= "false"/>
-            <set_value name="$spawnfleetposition" exact= "position.[if $greenfleetid then 17.321km else 0m, 0m, if $greenfleetid then-10km else -20km]"/>
+            <set_value name="$spawnfleetposition" exact= "position.[if $greenfleetid then 8.6605km else 0m, 0m, if $greenfleetid then-10km else -10km]"/>
             <set_value name="$spawnfleetzone" exact= "$zone"/>
             <set_value name="$spawnfleetscripts" exact= "$bluescripts"/>
             <include_actions ref="md.FleetCreation.CreateFleet"/>
@@ -216,7 +216,7 @@
             <set_value name="$spawnfleetid" exact="$redfleetid"/>
             <set_value name="$spawnfleetfaction" exact= "faction.xenon"/>
             <set_value name="$spawnfleetisgreen" exact= "false"/>
-            <set_value name="$spawnfleetposition" exact= "position.[0m, 0m,20km]"/>
+            <set_value name="$spawnfleetposition" exact= "position.[0m, 0m,10km]"/>
             <set_value name="$spawnfleetzone" exact= "$zone"/>
             <set_value name="$spawnfleetscripts" exact= "$redscripts"/>
             <include_actions ref="md.FleetCreation.CreateFleet"/>
@@ -226,7 +226,7 @@
             <set_value name="$spawnfleetid" exact="$greenfleetid"/>
             <set_value name="$spawnfleetfaction" exact= "faction.heartofalbion"/>
             <set_value name="$spawnfleetisgreen" exact= "true"/>
-            <set_value name="$spawnfleetposition" exact= "position.[-17.321km, 0, -10km]"/>
+            <set_value name="$spawnfleetposition" exact= "position.[-8.6605km, 0, -5km]"/>
             <set_value name="$spawnfleetzone" exact= "$zone"/>
             <set_value name="$spawnfleetscripts" exact= "$greenscripts"/>
             <include_actions ref="md.FleetCreation.CreateFleet"/>
