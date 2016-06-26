@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mdscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="FleetCreation" xsi:noNamespaceSchemaLocation="http://utnas/~unitrader/XRebirthxsds/md.xsd">
+  <cues>
+    <library name="CreateFleet">
+      <actions>
+        <!-- 
+        Input Vars:
+        <set_value name="$spawnfleetid" exact="config id of Fleet to be created"/>
+        <set_value name="$spawnfleetfaction" exact=" faction of Fleet to be created"/>
+        <set_value name="$spawnfleetisgreen" exact=" set pilot owner to player and cover owner to  $spawnfleetfaction to display the Fleet in Green (will still fight all Enemies of $spawnfleetfaction)"/>
+        <set_value name="$spawnfleetposition" exact=" position around which the Fleet will be created"/>
+        <set_value name="$spawnfleetzone" exact=" battle Zone"/>
+        <set_value name="$spawnfleetscripts" exact=" scripts to be used by the spawned Fleet"/>
+        Return Var:
+        $spawnfleet == group of Fleet created
+        -->
+        <create_group groupname="$spawnfleet"/>
+        <do_all exact="$fleetconfigs.{$spawnfleetid}.count" counter="$i">
+          <create_ship groupname="$spawnfleet" name="$ship" macro="$fleetconfigs.{$spawnfleetid}.{$i}.{1}" zone="$spawnfleetzone">
+            <owner exact="$spawnfleetfaction"/>
+            <pilot macro="character_split_m_a_macro">
+              <owner exact="if $spawnfleetisplayer then faction.player else $spawnfleetfaction"/>
+              <skills>
+                <skill type="boarding" exact="5"/>
+                <skill type="combat" exact="5"/>
+                <skill type="engineering" exact="5"/>
+                <skill type="leadership" exact="5"/>
+                <skill type="management" exact="5"/>
+                <skill type="morale" exact="5"/>
+                <skill type="navigation" exact="5"/>
+                <skill type="science" exact="5"/>
+              </skills>
+            </pilot>
+            <defence macro="character_split_m_a_macro">
+              <owner exact="$spawnfleetfaction"/>
+              <skills>
+                <skill type="boarding" exact="5"/>
+                <skill type="combat" exact="5"/>
+                <skill type="engineering" exact="5"/>
+                <skill type="leadership" exact="5"/>
+                <skill type="management" exact="5"/>
+                <skill type="morale" exact="5"/>
+                <skill type="navigation" exact="5"/>
+                <skill type="science" exact="5"/>
+              </skills>
+            </defence>
+            <engineer macro="character_split_m_a_macro">
+              <owner exact="$spawnfleetfaction"/>
+              <skills>
+                <skill type="boarding" exact="5"/>
+                <skill type="combat" exact="5"/>
+                <skill type="engineering" exact="5"/>
+                <skill type="leadership" exact="5"/>
+                <skill type="management" exact="5"/>
+                <skill type="morale" exact="5"/>
+                <skill type="navigation" exact="5"/>
+                <skill type="science" exact="5"/>
+              </skills>
+            </engineer>
+            <orientation orientation="look_at" refposition="position.[0m,0m,0m]"/>
+            <safepos value="$spawnfleetposition" radius="2km"/>
+          </create_ship>
+          <do_if value="$spawnfleetisplayer">
+            <set_cover_owner object="$ship" faction="$spawnfleetfaction"/>
+            <set_cover_owner object="$ship.pilot" faction="$spawnfleetfaction"/>
+            <set_cover_owner object="$ship.defense" faction="$spawnfleetfaction"/>
+            <set_cover_owner object="$ship.engineer" faction="$spawnfleetfaction"/>
+          </do_if>
+          <do_all exact="( $fleetconfigs.{$spawnfleetid}.{$i}.count - 2 ) /2" counter="$j">
+            <add_units object="$ship" macro="$fleetconfigs.{$spawnfleetid}.{$i}.{ ($j*2)+1 }" exact="$fleetconfigs.{$spawnfleetid}.{$i}.{ ($j*2)+2 }"/>
+          </do_all>
+          <do_if value="$fleetconfigs.{$spawnfleetid}.{$i}.{2} != 0 and $fleetconfigs.{$spawnfleetid}.{$i}.{2} lt $i">
+            <set_object_commander object="$ship" commander="$spawnfleet.{$fleetconfigs.{$spawnfleetid}.{$i}.{2}}"/>
+            <start_script object="$ship.pilot" name="$spawnscripts.$subordinate">
+              <param name="target" value="$spawnfleet.{$fleetconfigs.{$spawnfleetid}.{$i}.{2}}"/>
+            </start_script>
+          </do_if>
+          <do_else>
+            <start_script object="$ship.pilot" name="$spawnscripts.$leader"/>
+          </do_else>
+          <start_script object="$ship.engineer" name="$spawnscripts.$engineer"/>
+          <start_script object="$ship.defencenpc" name="$spawnscripts.$defense"/>
+        </do_all>
+      </actions>
+    </library>
+  </cues>
+</mdscript>
