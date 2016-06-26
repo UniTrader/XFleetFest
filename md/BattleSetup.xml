@@ -341,6 +341,7 @@
                 <destroy_group group="$wrecks"/>
                 <destroy_group group="$bluefleet"/>
                 <destroy_group group="$redfleet"/>
+                <destroy_group group="$greenfleet"/>
                 <start_conversation actor="player.copilot" conversation="BattleSetup"/>
               </actions>
             </cue>
