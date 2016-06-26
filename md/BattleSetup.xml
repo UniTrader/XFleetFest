@@ -407,16 +407,16 @@
                     <set_value name="$killinfo" exact="'\n\033X        '"/>
                   </do_if>
                   <do_elseif value="event.param.owner ==  faction.plutarch">
-                      <set_value name="$killinfo" exact="'\n%2 \033B%1'.[@event.param.macro.name,$killcount]"/>
+                      <set_value name="$killinfo" exact="'\n%2 \033B%1\033X'.[@event.param.macro.name,$killcount]"/>
                   </do_elseif>
                   <do_elseif value="event.param.owner ==  faction.xenon">
-                      <set_value name="$killinfo" exact="'\n%2 \033R%1'.[@event.param.macro.name,$killcount]"/>
+                      <set_value name="$killinfo" exact="'\n%2 \033R%1\033X'.[@event.param.macro.name,$killcount]"/>
                   </do_elseif>
                   <do_elseif value="event.param.owner ==  faction.heartofalbion">
-                      <set_value name="$killinfo" exact="'\n%2 \033G%1'.[@event.param.macro.name,$killcount]"/>
+                      <set_value name="$killinfo" exact="'\n%2 \033G%1\033X'.[@event.param.macro.name,$killcount]"/>
                   </do_elseif>
                   <do_else>
-                    <set_value name="$killinfo" exact="'\n%2 \033Y%1'.[@event.param.macro.name,$killcount]"/>
+                    <set_value name="$killinfo" exact="'\n%2 \033Y%1\033X'.[@event.param.macro.name,$killcount]"/>
                   </do_else>
                   <!-- Killmethod -->
                   <do_if value="event.param2 == killmethod.hitbybullet">
