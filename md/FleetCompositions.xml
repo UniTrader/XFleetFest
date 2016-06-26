@@ -9,6 +9,9 @@
         <!-- Fleet Definition: [ macro.first_ship , index#.leader , macro.drone1 , count , macro.drone2 , count, .... ] , [ macro.second_ship , ... ] ... ] -->
         <set_value name="$fleetnames" exact="[]"/>
         <set_value name="$fleetconfigs" exact="[]"/>
+        <!-- deactivate a Fleet - just give it no Members to be created -->
+         <append_to_list name="$fleetnames" exact="'No Fleet'"/>
+        <append_to_list name="$fleetconfigs" exact="[ ]"/>
         <!-- not to be included in Demo Version
         <append_to_list name="$fleetnames" exact="'1 Lyramekron'"/>
         <append_to_list name="$fleetconfigs" exact="[ [ macro.units_size_xl_cs_omicron_ship_04_macro , 0 ] ]"/>

@@ -11,9 +11,9 @@
         <!-- Load available Script Configurations -->
         <include_actions ref="md.Settings.SetupScripts"/>
         <!-- some default Start Values, can be changed with the Battle Config -->
-        <set_value name="$bluefleetid" exact="1"/>
-        <set_value name="$redfleetid" exact="2"/>
-        <set_value name="$greenfleetid" exact="0"/>
+        <set_value name="$bluefleetid" exact="2"/>
+        <set_value name="$redfleetid" exact="3"/>
+        <set_value name="$greenfleetid" exact="1"/>
         <set_value name="$bluescripts" exact="$scriptconfigs.{1}"/>
         <set_value name="$redscripts" exact="$scriptconfigs.{1}"/>
         <set_value name="$greenscripts" exact="$scriptconfigs.{1}"/>
@@ -133,9 +133,6 @@
               <do_elseif value="event.param == 'BattleSetup_Fleet_Next'">
                 <set_value name="$index" exact="event.param2"/>
               </do_elseif>
-              <do_if value="$fleetcolor == 'green' and $index == 0">
-                <add_player_choice_sub text="'No Green Fleet'" position="1" section="BattleSetup_Fleet_Selected" choiceparam="0"/>
-              </do_if>
               <do_all exact="5" counter="$i">
                 <set_value name="$ilast" exact="$i"/>
                 <do_if value="$fleetnames.{$index+$i}?">
