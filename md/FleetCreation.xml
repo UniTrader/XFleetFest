@@ -71,15 +71,15 @@
           </do_all>
           <do_if value="$fleetconfigs.{$spawnfleetid}.{$i}.{2} != 0 and $fleetconfigs.{$spawnfleetid}.{$i}.{2} lt $i">
             <set_object_commander object="$ship" commander="$spawnfleet.{$fleetconfigs.{$spawnfleetid}.{$i}.{2}}"/>
-            <start_script object="$ship.pilot" name="$spawnscripts.$subordinate">
+            <start_script object="$ship.pilot" name="$spawnfleetscripts.$subordinate">
               <param name="target" value="$spawnfleet.{$fleetconfigs.{$spawnfleetid}.{$i}.{2}}"/>
             </start_script>
           </do_if>
           <do_else>
-            <start_script object="$ship.pilot" name="$spawnscripts.$leader"/>
+            <start_script object="$ship.pilot" name="$spawnfleetscripts.$leader"/>
           </do_else>
-          <start_script object="$ship.engineer" name="$spawnscripts.$engineer"/>
-          <start_script object="$ship.defencenpc" name="$spawnscripts.$defense"/>
+          <start_script object="$ship.engineer" name="$spawnfleetscripts.$engineer"/>
+          <start_script object="$ship.defencenpc" name="$spawnfleetscripts.$defense"/>
         </do_all>
       </actions>
     </library>
