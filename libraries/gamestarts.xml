@@ -10,6 +10,9 @@
       <ship macro="unit_player_ship_b_macro">
         <upgrade macro="engine_player_bal_mk5_macro" />
         <upgrade macro="shieldgenerator_player_bal_mk5_macro" />
+        <upgrade macro="unit_player_ship_scanner_3_macro"/>
+        <upgrade macro="unit_player_ship_jumpdrive_macro"/>
+        <inventory ware="inv_timewarp"/>
       </ship>
     </player>
   </gamestart>
