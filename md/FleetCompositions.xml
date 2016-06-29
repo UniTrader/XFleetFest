@@ -54,8 +54,8 @@
           <append_to_list name="$fleetconfigs" exact="[ 
           [ macro.units_size_xl_player_behemoth_macro , 0 ] ,
 [ macro.units_size_xl_van_destroyer_macro , 1 ] , [ macro.units_size_xl_van_destroyer_macro , 1 ] , [ macro.units_size_xl_van_destroyer_macro , 1 ] , [ macro.units_size_xl_van_destroyer_macro , 1 ] ,
-[ macro.units_size_xl_fort_macro , 2 ] , [ macro.units_size_xl_fort_macro , 2 ] , [ macro.units_size_size_xl_player_hades_macro , 3 ] ,[ macro.units_size_size_xl_player_hades_macro , 3 ] ,
-[ macro.units_size_l_dv_fury_new_defence_macro , 4 ] ,  [ macro.units_size_l_dv_fury_new_defence_macro , 4 ] ,  [ macro.units_size_l_laserjet_01_macro , 5 ] , [ macro.units_size_units_size_l_laserjet_01_macro , 5 ] ,  
+[ macro.units_size_xl_fort_macro , 2 ] , [ macro.units_size_xl_fort_macro , 2 ] , [ macro.units_size_xl_player_hades_macro , 3 ] ,[ macro.units_size_xl_player_hades_macro , 3 ] ,
+[ macro.units_size_l_dv_fury_new_defence_macro , 4 ] ,  [ macro.units_size_l_dv_fury_new_defence_macro , 4 ] ,  [ macro.units_size_l_laserjet_01_macro , 5 ] , [ macro.units_size_l_laserjet_01_macro , 5 ] ,  
 [ macro.units_size_xl_player_chimera_macro , 1 ] ,  [ macro.units_size_l_pir_besieger_frig_macro , 1 ]
           ]"/>
         </do_if>
