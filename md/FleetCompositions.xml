@@ -49,7 +49,7 @@
 [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] , [ macro.units_size_l_single_attack_ship_macro , 7 ] 
         ]"/>
         <!-- CWIR Test Fleet -->
-        <do_if value="macro.units_size_xl_player_behemoth_macro.exists">
+        <do_if value="@macro.units_size_xl_player_behemoth_macro.id" comment="check if CWIR is installed (just verify a random ship of it is present">
           <append_to_list name="$fleetnames" exact="'Black Rain CWIR Fleet'"/>
           <append_to_list name="$fleetconfigs" exact="[ 
           [ macro.units_size_xl_player_behemoth_macro , 0 ] ,
