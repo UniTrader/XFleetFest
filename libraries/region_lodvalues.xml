@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<diff>
+<replace sel="/regionlods" >
+<regionlods>
+  <distances>
+    <!--XXL-->
+    <distance minobjectsize="2500" component="10000" render="50000" calculation="50000" chunksize="128" />
+    <!--XL-->
+    <distance minobjectsize="1000" component="10000" render="50000" calculation="50000" chunksize="64" />
+    <!--L-->
+    <distance minobjectsize="500" component="10000" render="50000" calculation="50000" chunksize="32" />
+    <!--M-->
+    <distance minobjectsize="100" component="6000" render="50000" calculation="50000" chunksize="16" />
+    <!--S-->
+    <distance minobjectsize="25" component="5000" render="20000" calculation="24000" chunksize="8" />
+	  <!--XS-->
+    <distance minobjectsize="10" component="3500" render="10000" calculation="12000" chunksize="2" />
+    <!--XXS-->
+    <distance minobjectsize="0" component="2000" render="4000" calculation="8000" chunksize="2" />
+  </distances>
+</regionlods>
+
+</replace>
+</diff>
