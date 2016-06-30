@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff><add sel="//handler[@name='AttackHandler']/actions" pos="prepend"><remove_value name="$fleerespond"/></add></diff>
+<diff>
+	<replace sel="/aiscript/interrupts/library/handler/conditions/check_any/check_all/set_value[@name='$fleerespond']/@exact">false</replace>
+</diff>
