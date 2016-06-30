@@ -2,9 +2,9 @@
 <mdscript xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="BattleSetup" xsi:noNamespaceSchemaLocation="http://utnas/~unitrader/XRebirthxsds/md.xsd">
   <cues>
     <cue name="Init">
-      <conditions>
+      <!--conditions>
         <event_cue_signalled cue="md.Setup.GameStart"/>
-      </conditions>
+      </conditions-->
       <actions>
         <!-- Add Player Equipment (if not do-able in gamestarts) -->
         <add_inventory entity="player.entity" ware="ware.inv_timewarp" exact="1"/>
