@@ -72,7 +72,7 @@
           <do_if value="$spawnfleetisgreen">
             <set_cover_owner object="$ship" faction="$spawnfleetfaction"/>
             <set_cover_owner object="$ship.pilot" faction="$spawnfleetfaction"/>
-            <set_cover_owner object="$ship.defense" faction="$spawnfleetfaction"/>
+            <set_cover_owner object="$ship.defencenpc" faction="$spawnfleetfaction"/>
             <set_cover_owner object="$ship.engineer" faction="$spawnfleetfaction"/>
           </do_if>
           <do_all exact="( $fleetconfigs.{$spawnfleetid}.{$i}.count - 2 ) /2" counter="$j">
