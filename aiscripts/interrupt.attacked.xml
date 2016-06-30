@@ -1,4 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<diff>
-	<replace sel="/aiscript/interrupts/library/handler/conditions/check_any/check_all/set_value[@name='$fleerespond']/@exact">false</replace>
-</diff>
+<diff><replace sel="/aiscript/interrupts/library/handler/conditions/check_any/check_all/set_value[@name='$fleerespond']"><check_value value="false"/></replace></diff>
