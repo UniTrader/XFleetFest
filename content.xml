@@ -3,4 +3,5 @@
 <content id="XFleetFest" name="Fleet Fest" description="Fleet Fest Mod (Development Version)" author="UniTrader" date="Future" version="1" save="false" enabled="true" uninstaller="false" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://utnas/~unitrader/XRebirthxsds/content.xsd">
   <dependency id="ego_dlc_2" optional="true"/>
   <dependency id="ego_dlc_teladi_outpost" optional="true"/>
+  <dependency id="CWIR" optional="true"/>
 </content>
