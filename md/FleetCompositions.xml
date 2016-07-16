@@ -70,7 +70,8 @@
         $engineer Script: will be started on all Engineers
         -->
         <set_value name="$scriptconfigs" exact="[]"/>
-        <append_to_list name="$scriptconfigs" exact="table[$displayname='Vanilla Scripts',$leader='move.patrol',$subordinate='move.escort.capital',$defense='fight.defend.capital',$engineer='engineer.ai']"/>
+        <append_to_list name="$scriptconfigs" exact="table[$displayname='Current Default Scripts',$leader='move.patrol',$subordinate='move.escort.capital',$defense='fight.defend.capital',$engineer='engineer.ai']"/>
+        <append_to_list name="$scriptconfigs" exact="table[$displayname='Vanilla40 Scripts',$leader='move.patrol.vanilla40',$subordinate='move.escort.capital.vanilla40',$defense='fight.defend.capital.vanilla40',$engineer='engineer.ai.vanilla40']"/>
       </actions>
     </library>
   </cues>
